@@ -1,0 +1,51 @@
+{
+  "name": "windflow-css",
+  "version": "2.0.0",
+  "description": "A modern CSS framework inspired by Tailwind with enhanced features",
+  "main": "dist/windflow.css",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "watch": "node scripts/build.js --watch",
+    "minify": "postcss dist/windflow.css -o dist/windflow.min.css --use cssnano",
+    "dev": "npm run build && npm run watch",
+    "test": "jest",
+    "verify": "node scripts/verify-examples.js",
+    "verify-build": "npm run build && npm run verify"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "utility-first",
+    "windflow",
+    "tailwind-alternative"
+  ],
+  "author": "Jordan Diaz",
+  "bin": {
+    "windflow": "./cli.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "cssnano": "^6.0.1",
+    "chokidar": "^3.5.3",
+    "jest": "^29.7.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordandiazdiaz/windflow.git"
+  },
+  "homepage": "https://github.com/jordandiazdiaz/windflow#readme",
+  "bugs": {
+    "url": "https://github.com/jordandiazdiaz/windflow/issues"
+  },
+  "files": [
+    "dist/",
+    "cli.js",
+    "windflow.config.js",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ]
+}

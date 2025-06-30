@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow Advanced Components Examples</title>
+    <link rel="stylesheet" href="../dist/windflow.css">
+    <style>
+        .component-showcase {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            border: 1px solid var(--wf-border);
+            border-radius: 1rem;
+            background: var(--wf-surface);
+        }
+        .code-snippet {
+            background: #1e293b;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="theme-dark bg-theme-background text-theme-text min-h-screen">
+    <!-- Header -->
+    <header class="glass-nav p-6 border-b border-theme-border">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl font-bold gradient-text">WindFlow Advanced Components</h1>
+            <p class="text-theme-text-muted mt-2">Real-world examples and advanced use cases</p>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto p-6">
+        <!-- 1. Interactive Dashboard Card -->
+        <div class="component-showcase">
+            <h2 class="text-2xl font-bold mb-4 text-theme-primary">Interactive Dashboard Card</h2>
+            
+            <div class="bg-theme-surface border border-theme-border rounded-2xl p-6 card-hover-float perspective-lg">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-theme-text">Website Analytics</h3>
+                        <p class="text-theme-text-muted">Last 30 days</p>
+                    </div>
+                    <div class="bg-green-500 text-white px-3 py-1 rounded-full text-sm animate-pulse">
+                        Live
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="text-center p-4 bg-theme-background rounded-lg hover:animate-bounce">
+                        <div class="text-2xl font-bold text-theme-primary animate-glow">24.5K</div>
+                        <div class="text-sm text-theme-text-muted">Visitors</div>
+                    </div>
+                    <div class="text-center p-4 bg-theme-background rounded-lg hover:animate-bounce delay-100">
+                        <div class="text-2xl font-bold text-green-500 animate-glow">+12%</div>
+                        <div class="text-sm text-theme-text-muted">Growth</div>
+                    </div>
+                    <div class="text-center p-4 bg-theme-background rounded-lg hover:animate-bounce delay-200">
+                        <div class="text-2xl font-bold text-blue-500 animate-glow">3.2s</div>
+                        <div class="text-sm text-theme-text-muted">Avg Time</div>
+                    </div>
+                </div>
+                
+                <button class="w-full bg-theme-primary text-white py-3 rounded-lg btn-hover-lift">
+                    View Full Report
+                </button>
+            </div>
+
+            <div class="code-snippet">
+                <code class="text-gray-300 text-sm">
+&lt;div class="bg-theme-surface border border-theme-border rounded-2xl p-6 card-hover-float perspective-lg"&gt;
+  &lt;div class="flex items-center justify-between mb-6"&gt;
+    &lt;div&gt;
+      &lt;h3 class="text-xl font-bold text-theme-text"&gt;Website Analytics&lt;/h3&gt;
+      &lt;p class="text-theme-text-muted"&gt;Last 30 days&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="bg-green-500 text-white px-3 py-1 rounded-full text-sm animate-pulse"&gt;Live&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="grid grid-cols-3 gap-4 mb-6"&gt;
+    &lt;div class="text-center p-4 bg-theme-background rounded-lg hover:animate-bounce"&gt;
+      &lt;div class="text-2xl font-bold text-theme-primary animate-glow"&gt;24.5K&lt;/div&gt;
+      &lt;div class="text-sm text-theme-text-muted"&gt;Visitors&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </div>
+        </div>
+
+        <!-- 2. Cyberpunk Login Form -->
+        <div class="component-showcase theme-cyberpunk">
+            <h2 class="text-2xl font-bold mb-4 text-theme-primary">Cyberpunk Login Form</h2>
+            
+            <div class="max-w-md mx-auto bg-theme-surface border-2 neon-border rounded-xl p-8 cyber-grid relative">
+                <div class="absolute inset-0 bg-gradient-radial from-transparent to-theme-background/50 rounded-xl"></div>
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold text-center mb-6 neon-text animate-glow">ACCESS TERMINAL</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-theme-text mb-2">USERNAME</label>
+                            <input type="text" class="w-full bg-theme-background border neon-border rounded-lg px-4 py-3 text-theme-text focus:animate-pulse" placeholder="Enter username">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-theme-text mb-2">PASSWORD</label>
+                            <input type="password" class="w-full bg-theme-background border neon-border rounded-lg px-4 py-3 text-theme-text focus:animate-pulse" placeholder="Enter password">
+                        </div>
+                        
+                        <button class="w-full bg-theme-primary text-white py-3 rounded-lg font-bold neon-border hover:animate-glitch transition-all duration-300">
+                            CONNECT
+                        </button>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <div class="loading-dots text-theme-secondary">
+                            <div></div><div></div><div></div>
+                        </div>
+                        <p class="text-xs text-theme-text-muted mt-2 animate-blink">ESTABLISHING CONNECTION...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-snippet">
+                <code class="text-gray-300 text-sm">
+&lt;div class="theme-cyberpunk"&gt;
+  &lt;div class="bg-theme-surface border-2 neon-border rounded-xl p-8 cyber-grid"&gt;
+    &lt;h3 class="text-2xl font-bold text-center mb-6 neon-text animate-glow"&gt;ACCESS TERMINAL&lt;/h3&gt;
+    
+    &lt;input class="w-full bg-theme-background border neon-border rounded-lg px-4 py-3 focus:animate-pulse"&gt;
+    &lt;button class="w-full bg-theme-primary text-white py-3 rounded-lg hover:animate-glitch"&gt;CONNECT&lt;/button&gt;
+    
+    &lt;div class="loading-dots text-theme-secondary"&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </div>
+        </div>
+
+        <!-- 3. Glassmorphism Media Player -->
+        <div class="component-showcase theme-glassmorphism bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
+            <h2 class="text-2xl font-bold mb-4 text-white">Glassmorphism Media Player</h2>
+            
+            <div class="max-w-lg mx-auto glass-card p-6">
+                <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-16 h-16 bg-gradient-conic from-purple-500 to-pink-500 rounded-full animate-spin"></div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Synthwave Dreams</h4>
+                        <p class="text-white/70">RetroWave Artist</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="flex justify-between text-sm text-white/70 mb-2">
+                        <span>2:34</span>
+                        <span>4:12</span>
+                    </div>
+                    <div class="w-full bg-white/20 rounded-full h-2">
+                        <div class="bg-white h-2 rounded-full w-3/5 animate-pulse"></div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-center space-x-6">
+                    <button class="text-white hover:animate-rubber-band p-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0L3.586 12l2.707-2.707a1 1 0 011.414 1.414L6.414 12l1.293 1.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button class="bg-white text-purple-600 rounded-full p-3 hover:animate-tada">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button class="text-white hover:animate-rubber-band p-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex items-center justify-between mt-6 text-white/70">
+                    <button class="hover:animate-pulse">🔀</button>
+                    <button class="hover:animate-pulse">❤️</button>
+                    <button class="hover:animate-pulse">🔊</button>
+                </div>
+            </div>
+
+            <div class="code-snippet">
+                <code class="text-gray-300 text-sm">
+&lt;div class="theme-glassmorphism bg-gradient-to-br from-purple-400 to-red-500"&gt;
+  &lt;div class="glass-card p-6"&gt;
+    &lt;div class="flex items-center space-x-4 mb-6"&gt;
+      &lt;div class="w-16 h-16 bg-gradient-conic from-purple-500 to-pink-500 rounded-full animate-spin"&gt;&lt;/div&gt;
+      &lt;div&gt;
+        &lt;h4 class="text-lg font-bold text-white"&gt;Synthwave Dreams&lt;/h4&gt;
+        &lt;p class="text-white/70"&gt;RetroWave Artist&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;button class="bg-white text-purple-600 rounded-full p-3 hover:animate-tada"&gt;▶️&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </div>
+        </div>
+
+        <!-- 4. Advanced Loading States -->
+        <div class="component-showcase">
+            <h2 class="text-2xl font-bold mb-4 text-theme-primary">Advanced Loading States</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skeleton Loader -->
+                <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+                    <h4 class="font-bold mb-4">Skeleton Loader</h4>
+                    <div class="space-y-3">
+                        <div class="h-4 bg-gray-300 rounded animate-pulse"></div>
+                        <div class="h-4 bg-gray-300 rounded w-3/4 animate-pulse delay-100"></div>
+                        <div class="h-4 bg-gray-300 rounded w-1/2 animate-pulse delay-200"></div>
+                    </div>
+                </div>
+                
+                <!-- Progress Ring -->
+                <div class="bg-theme-surface border border-theme-border rounded-xl p-6 text-center">
+                    <h4 class="font-bold mb-4">Progress Ring</h4>
+                    <div class="loading-pulse-ring text-blue-500 mx-auto"></div>
+                    <p class="text-sm text-theme-text-muted mt-2">Loading 75%</p>
+                </div>
+                
+                <!-- Matrix Effect -->
+                <div class="bg-black border border-green-500 rounded-xl p-6 text-center overflow-hidden">
+                    <h4 class="font-bold mb-4 text-green-500">Matrix Loading</h4>
+                    <div class="text-green-500 font-mono animate-matrix">
+                        01001001<br>
+                        11010001<br>
+                        10101010
+                    </div>
+                </div>
+                
+                <!-- Floating Orbs -->
+                <div class="bg-theme-surface border border-theme-border rounded-xl p-6 text-center">
+                    <h4 class="font-bold mb-4">Floating Orbs</h4>
+                    <div class="flex justify-center space-x-2">
+                        <div class="w-3 h-3 bg-purple-500 rounded-full animate-float"></div>
+                        <div class="w-3 h-3 bg-blue-500 rounded-full animate-float delay-300"></div>
+                        <div class="w-3 h-3 bg-pink-500 rounded-full animate-float delay-700"></div>
+                    </div>
+                </div>
+                
+                <!-- Typewriter Loading -->
+                <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+                    <h4 class="font-bold mb-4">Typewriter Effect</h4>
+                    <p class="text-typewriter text-theme-text font-mono">Loading your data...</p>
+                </div>
+                
+                <!-- Heartbeat Monitor -->
+                <div class="bg-theme-surface border border-theme-border rounded-xl p-6 text-center">
+                    <h4 class="font-bold mb-4">System Status</h4>
+                    <div class="w-6 h-6 bg-green-500 rounded-full animate-heartbeat mx-auto"></div>
+                    <p class="text-sm text-theme-text-muted mt-2">All systems online</p>
+                </div>
+            </div>
+
+            <div class="code-snippet">
+                <code class="text-gray-300 text-sm">
+&lt;!-- Skeleton Loader --&gt;
+&lt;div class="space-y-3"&gt;
+  &lt;div class="h-4 bg-gray-300 rounded animate-pulse"&gt;&lt;/div&gt;
+  &lt;div class="h-4 bg-gray-300 rounded w-3/4 animate-pulse delay-100"&gt;&lt;/div&gt;
+  &lt;div class="h-4 bg-gray-300 rounded w-1/2 animate-pulse delay-200"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Progress Ring --&gt;
+&lt;div class="loading-pulse-ring text-blue-500"&gt;&lt;/div&gt;
+
+&lt;!-- Floating Orbs --&gt;
+&lt;div class="flex justify-center space-x-2"&gt;
+  &lt;div class="w-3 h-3 bg-purple-500 rounded-full animate-float"&gt;&lt;/div&gt;
+  &lt;div class="w-3 h-3 bg-blue-500 rounded-full animate-float delay-300"&gt;&lt;/div&gt;
+  &lt;div class="w-3 h-3 bg-pink-500 rounded-full animate-float delay-700"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Typewriter --&gt;
+&lt;p class="text-typewriter font-mono"&gt;Loading your data...&lt;/p&gt;
+                </code>
+            </div>
+        </div>
+
+        <!-- 5. Interactive Button Gallery -->
+        <div class="component-showcase">
+            <h2 class="text-2xl font-bold mb-4 text-theme-primary">Interactive Button Gallery</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Primary Buttons -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-theme-text">Primary Actions</h4>
+                    <button class="w-full bg-blue-500 text-white py-3 px-6 rounded-lg btn-hover-lift font-medium">
+                        Hover Lift
+                    </button>
+                    <button class="w-full bg-purple-500 text-white py-3 px-6 rounded-lg btn-hover-glow font-medium">
+                        Hover Glow
+                    </button>
+                    <button class="w-full bg-pink-500 text-white py-3 px-6 rounded-lg btn-hover-scale font-medium">
+                        Hover Scale
+                    </button>
+                </div>
+                
+                <!-- Animated Buttons -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-theme-text">Animated Effects</h4>
+                    <button class="w-full bg-green-500 text-white py-3 px-6 rounded-lg hover:animate-rubber-band font-medium">
+                        Rubber Band
+                    </button>
+                    <button class="w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:animate-jello font-medium">
+                        Jello Wobble
+                    </button>
+                    <button class="w-full bg-red-500 text-white py-3 px-6 rounded-lg hover:animate-tada font-medium">
+                        Tada Celebration
+                    </button>
+                </div>
+                
+                <!-- Special Effects -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-theme-text">Special Effects</h4>
+                    <button class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-6 rounded-lg hover:animate-morphing font-medium">
+                        Morphing Shape
+                    </button>
+                    <button class="w-full bg-black text-green-400 py-3 px-6 rounded-lg hover:animate-glitch font-mono border border-green-400">
+                        Glitch Effect
+                    </button>
+                    <button class="w-full bg-yellow-500 text-black py-3 px-6 rounded-lg animate-glow font-medium">
+                        Always Glowing
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Loading Button States -->
+            <div class="mt-8">
+                <h4 class="font-semibold text-theme-text mb-4">Loading Button States</h4>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg flex items-center space-x-2">
+                        <div class="loading-spinner w-4 h-4 border-white"></div>
+                        <span>Processing...</span>
+                    </button>
+                    
+                    <button class="bg-purple-500 text-white py-3 px-6 rounded-lg flex items-center space-x-2">
+                        <div class="loading-dots text-white">
+                            <div></div><div></div><div></div>
+                        </div>
+                        <span>Loading</span>
+                    </button>
+                    
+                    <button class="bg-green-500 text-white py-3 px-6 rounded-lg flex items-center space-x-2">
+                        <div class="loading-bars text-white">
+                            <div></div><div></div><div></div><div></div><div></div>
+                        </div>
+                        <span>Analyzing</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="code-snippet">
+                <code class="text-gray-300 text-sm">
+&lt;!-- Hover Effects --&gt;
+&lt;button class="bg-blue-500 text-white py-3 px-6 rounded-lg btn-hover-lift"&gt;Hover Lift&lt;/button&gt;
+&lt;button class="bg-purple-500 text-white py-3 px-6 rounded-lg btn-hover-glow"&gt;Hover Glow&lt;/button&gt;
+&lt;button class="bg-pink-500 text-white py-3 px-6 rounded-lg btn-hover-scale"&gt;Hover Scale&lt;/button&gt;
+
+&lt;!-- Animation Effects --&gt;
+&lt;button class="bg-green-500 text-white py-3 px-6 rounded-lg hover:animate-rubber-band"&gt;Rubber Band&lt;/button&gt;
+&lt;button class="bg-orange-500 text-white py-3 px-6 rounded-lg hover:animate-jello"&gt;Jello Wobble&lt;/button&gt;
+&lt;button class="bg-red-500 text-white py-3 px-6 rounded-lg hover:animate-tada"&gt;Tada Celebration&lt;/button&gt;
+
+&lt;!-- Loading States --&gt;
+&lt;button class="bg-blue-500 text-white py-3 px-6 rounded-lg flex items-center space-x-2"&gt;
+  &lt;div class="loading-spinner w-4 h-4 border-white"&gt;&lt;/div&gt;
+  &lt;span&gt;Processing...&lt;/span&gt;
+&lt;/button&gt;
+                </code>
+            </div>
+        </div>
+
+        <!-- 6. 3D Card Gallery -->
+        <div class="component-showcase perspective-lg">
+            <h2 class="text-2xl font-bold mb-4 text-theme-primary">3D Card Gallery</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 3D Flip Card -->
+                <div class="relative h-64 perspective-lg">
+                    <div class="absolute inset-0 transform hover:rotate-y-180 transition-transform duration-700 transform-3d cursor-pointer">
+                        <!-- Front -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-6 backface-hidden flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-4xl text-white mb-2">🚀</div>
+                                <h3 class="text-xl font-bold text-white">Hover to Flip</h3>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl p-6 backface-hidden rotate-y-180 flex items-center justify-center">
+                            <div class="text-center">
+                                <h3 class="text-xl font-bold text-white mb-2">Back Side</h3>
+                                <p class="text-white/80">3D transforms with WindFlow!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tilt Card -->
+                <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-tilt">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🎭</div>
+                        <h3 class="text-xl font-bold text-theme-text">3D Tilt</h3>
+                        <p class="text-theme-text-muted">Hover for tilt effect</p>
+                    </div>
+                </div>
+                
+                <!-- Levitating Card -->
+                <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl p-6 animate-levitate text-white text-center">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-bold">Levitating</h3>
+                    <p class="text-white/80">Always floating</p>
+                </div>
+            </div>
+
+            <div class="code-snippet">
+                <code class="text-gray-300 text-sm">
+&lt;!-- 3D Flip Card --&gt;
+&lt;div class="relative h-64 perspective-lg"&gt;
+  &lt;div class="absolute inset-0 transform hover:rotate-y-180 transition-transform duration-700 transform-3d"&gt;
+    &lt;!-- Front --&gt;
+    &lt;div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-6 backface-hidden"&gt;
+      Front Content
+    &lt;/div&gt;
+    &lt;!-- Back --&gt;
+    &lt;div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl p-6 backface-hidden rotate-y-180"&gt;
+      Back Content
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Tilt Card --&gt;
+&lt;div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-tilt"&gt;
+  Content
+&lt;/div&gt;
+
+&lt;!-- Levitating Card --&gt;
+&lt;div class="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl p-6 animate-levitate"&gt;
+  Content
+&lt;/div&gt;
+                </code>
+            </div>
+        </div>
+
+        <!-- 7. Advanced Text Effects -->
+        <div class="component-showcase">
+            <h2 class="text-2xl font-bold mb-4 text-theme-primary">Advanced Text Effects</h2>
+            
+            <div class="space-y-8">
+                <!-- Glitch Text -->
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold text-glitch text-red-500" data-text="GLITCH EFFECT">
+                        GLITCH EFFECT
+                    </h3>
+                    <p class="text-theme-text-muted mt-2">Cyberpunk-style glitch text</p>
+                </div>
+                
+                <!-- Neon Text -->
+                <div class="text-center bg-black p-8 rounded-xl">
+                    <h3 class="text-4xl font-bold animate-neon text-pink-500">
+                        NEON GLOW
+                    </h3>
+                    <p class="text-gray-400 mt-2">Animated neon effect</p>
+                </div>
+                
+                <!-- Typewriter Text -->
+                <div class="bg-gray-900 p-6 rounded-xl">
+                    <div class="text-green-400 font-mono">
+                        <span class="text-gray-500">$ </span>
+                        <span class="text-typewriter">npm install windflow-css --save</span>
+                    </div>
+                </div>
+                
+                <!-- Gradient Text -->
+                <div class="text-center">
+                    <h3 class="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text animate-pulse">
+                        GRADIENT TEXT
+                    </h3>
+                    <p class="text-theme-text-muted mt-2">Animated gradient text</p>
+                </div>
+                
+                <!-- Floating Letters -->
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-theme-primary">
+                        <span class="inline-block animate-float">F</span>
+                        <span class="inline-block animate-float delay-100">L</span>
+                        <span class="inline-block animate-float delay-200">O</span>
+                        <span class="inline-block animate-float delay-300">A</span>
+                        <span class="inline-block animate-float delay-400">T</span>
+                        <span class="inline-block animate-float delay-500">I</span>
+                        <span class="inline-block animate-float delay-700">N</span>
+                        <span class="inline-block animate-float delay-800">G</span>
+                    </div>
+                    <p class="text-theme-text-muted mt-2">Each letter floats independently</p>
+                </div>
+            </div>
+
+            <div class="code-snippet">
+                <code class="text-gray-300 text-sm">
+&lt;!-- Glitch Text --&gt;
+&lt;h3 class="text-4xl font-bold text-glitch text-red-500" data-text="GLITCH EFFECT"&gt;
+  GLITCH EFFECT
+&lt;/h3&gt;
+
+&lt;!-- Neon Text --&gt;
+&lt;h3 class="text-4xl font-bold animate-neon text-pink-500"&gt;NEON GLOW&lt;/h3&gt;
+
+&lt;!-- Typewriter Text --&gt;
+&lt;span class="text-typewriter font-mono"&gt;npm install windflow-css --save&lt;/span&gt;
+
+&lt;!-- Gradient Text --&gt;
+&lt;h3 class="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text animate-pulse"&gt;
+  GRADIENT TEXT
+&lt;/h3&gt;
+
+&lt;!-- Floating Letters --&gt;
+&lt;span class="inline-block animate-float"&gt;F&lt;/span&gt;
+&lt;span class="inline-block animate-float delay-100"&gt;L&lt;/span&gt;
+&lt;span class="inline-block animate-float delay-200"&gt;O&lt;/span&gt;
+&lt;span class="inline-block animate-float delay-300"&gt;A&lt;/span&gt;
+&lt;span class="inline-block animate-float delay-400"&gt;T&lt;/span&gt;
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Switcher -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <div class="flex flex-col gap-2">
+            <button onclick="setTheme('dark')" class="w-12 h-12 bg-gray-800 rounded-full border-2 border-gray-600 hover:scale-110 transition-transform"></button>
+            <button onclick="setTheme('cyberpunk')" class="w-12 h-12 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full hover:scale-110 transition-transform"></button>
+            <button onclick="setTheme('glassmorphism')" class="w-12 h-12 bg-white/20 backdrop-blur-lg rounded-full border border-white/30 hover:scale-110 transition-transform"></button>
+            <button onclick="setTheme('retro')" class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-pink-400 rounded-full hover:scale-110 transition-transform"></button>
+        </div>
+    </div>
+
+    <script>
+        function setTheme(themeName) {
+            const themes = ['dark', 'cyberpunk', 'glassmorphism', 'retro', 'nature', 'ocean', 'monochrome', 'sunset'];
+            themes.forEach(theme => {
+                document.body.classList.remove(`theme-${theme}`);
+            });
+            document.body.classList.add(`theme-${themeName}`);
+            localStorage.setItem('windflow-theme', themeName);
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('windflow-theme') || 'dark';
+            setTheme(savedTheme);
+        });
+    </script>
+</body>
+</html>

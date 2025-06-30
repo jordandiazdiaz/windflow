@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow Themes Demo</title>
+    <link rel="stylesheet" href="../dist/windflow.css">
+    <style>
+        body { transition: all 0.3s ease; }
+        .theme-selector { max-width: 1200px; margin: 0 auto; }
+    </style>
+</head>
+<body class="theme-dark min-h-screen bg-theme-background text-theme-text">
+    <!-- Header -->
+    <header class="p-6 border-b border-theme-border">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-4xl font-bold bg-gradient-theme-primary text-transparent bg-clip-text">
+                WindFlow Themes
+            </h1>
+            <div class="flex gap-2">
+                <button onclick="setTheme('dark')" class="theme-toggle bg-theme-surface hover:bg-theme-surface-light px-4 py-2 rounded-lg">Dark</button>
+                <button onclick="setTheme('cyberpunk')" class="theme-toggle bg-theme-surface hover:bg-theme-surface-light px-4 py-2 rounded-lg">Cyberpunk</button>
+                <button onclick="setTheme('glassmorphism')" class="theme-toggle bg-theme-surface hover:bg-theme-surface-light px-4 py-2 rounded-lg">Glass</button>
+                <button onclick="setTheme('retro')" class="theme-toggle bg-theme-surface hover:bg-theme-surface-light px-4 py-2 rounded-lg">Retro</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Theme Selector -->
+    <section class="p-8">
+        <div class="theme-selector">
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('dark')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #6366f1;"></div>
+                    <div class="theme-preview-color" style="background: #8b5cf6;"></div>
+                    <div class="theme-preview-color" style="background: #0f172a;"></div>
+                    <div class="theme-preview-color" style="background: #1e293b;"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Dark</h3>
+                <p class="text-theme-text-muted text-sm">Modern dark theme with enhanced contrast</p>
+            </div>
+
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('cyberpunk')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #ff0080;"></div>
+                    <div class="theme-preview-color" style="background: #00ffff;"></div>
+                    <div class="theme-preview-color" style="background: #ffff00;"></div>
+                    <div class="theme-preview-color" style="background: #0a0a0a;"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Cyberpunk</h3>
+                <p class="text-theme-text-muted text-sm">Futuristic neon-inspired theme</p>
+            </div>
+
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('glassmorphism')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #6366f1;"></div>
+                    <div class="theme-preview-color" style="background: rgba(255, 255, 255, 0.2);"></div>
+                    <div class="theme-preview-color" style="background: rgba(255, 255, 255, 0.1);"></div>
+                    <div class="theme-preview-color" style="background: rgba(255, 255, 255, 0.3);"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Glassmorphism</h3>
+                <p class="text-theme-text-muted text-sm">Transparent glass-like effects</p>
+            </div>
+
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('retro')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #ff6b9d;"></div>
+                    <div class="theme-preview-color" style="background: #feca57;"></div>
+                    <div class="theme-preview-color" style="background: #48dbfb;"></div>
+                    <div class="theme-preview-color" style="background: #2c2c54;"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Retro</h3>
+                <p class="text-theme-text-muted text-sm">80s vintage aesthetic</p>
+            </div>
+
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('nature')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #22c55e;"></div>
+                    <div class="theme-preview-color" style="background: #84cc16;"></div>
+                    <div class="theme-preview-color" style="background: #eab308;"></div>
+                    <div class="theme-preview-color" style="background: #f0fdf4;"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Nature</h3>
+                <p class="text-theme-text-muted text-sm">Earth-inspired natural colors</p>
+            </div>
+
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('ocean')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #0ea5e9;"></div>
+                    <div class="theme-preview-color" style="background: #0284c7;"></div>
+                    <div class="theme-preview-color" style="background: #06b6d4;"></div>
+                    <div class="theme-preview-color" style="background: #f0f9ff;"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Ocean</h3>
+                <p class="text-theme-text-muted text-sm">Deep blue oceanic theme</p>
+            </div>
+
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('monochrome')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #000000;"></div>
+                    <div class="theme-preview-color" style="background: #404040;"></div>
+                    <div class="theme-preview-color" style="background: #808080;"></div>
+                    <div class="theme-preview-color" style="background: #ffffff;"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Monochrome</h3>
+                <p class="text-theme-text-muted text-sm">Elegant black and white</p>
+            </div>
+
+            <div class="theme-card bg-theme-surface border-theme-border" onclick="setTheme('sunset')">
+                <div class="theme-preview">
+                    <div class="theme-preview-color" style="background: #f97316;"></div>
+                    <div class="theme-preview-color" style="background: #ea580c;"></div>
+                    <div class="theme-preview-color" style="background: #fbbf24;"></div>
+                    <div class="theme-preview-color" style="background: #fffbeb;"></div>
+                </div>
+                <h3 class="font-bold text-lg text-theme-text">Sunset</h3>
+                <p class="text-theme-text-muted text-sm">Warm sunset colors</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Content -->
+    <section class="p-8">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Animations -->
+            <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+                <h3 class="text-xl font-bold mb-4 text-theme-primary">Advanced Animations</h3>
+                <div class="space-y-4">
+                    <button class="w-full bg-theme-primary text-white py-2 px-4 rounded-lg hover:animate-rubber-band">
+                        Rubber Band
+                    </button>
+                    <button class="w-full bg-theme-secondary text-white py-2 px-4 rounded-lg hover:animate-jello">
+                        Jello
+                    </button>
+                    <button class="w-full bg-theme-accent text-white py-2 px-4 rounded-lg hover:animate-tada">
+                        Tada!
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Text Effects -->
+            <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-4 text-theme-primary">Text Effects</h3>
+                <div class="space-y-4">
+                    <p class="animate-glow text-theme-accent">Glowing Text</p>
+                    <p class="text-typewriter text-theme-text">Typewriter effect...</p>
+                    <p class="animate-float text-theme-secondary">Floating Text</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Loading States -->
+            <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-4 text-theme-primary">Loading Components</h3>
+                <div class="space-y-4">
+                    <div class="loading-dots text-theme-primary">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="loading-bars text-theme-secondary">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="loading-spinner text-theme-accent"></div>
+                </div>
+            </div>
+
+            <!-- Card 4: Theme-specific Effects -->
+            <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-4 text-theme-primary">Theme Effects</h3>
+                <div class="space-y-4">
+                    <div class="neon-text">Neon Text (Cyberpunk)</div>
+                    <div class="glass-card p-4 rounded-lg">Glass Card (Glassmorphism)</div>
+                    <div class="retro-text">Retro Text (Retro)</div>
+                </div>
+            </div>
+
+            <!-- Card 5: Gradients -->
+            <div class="bg-gradient-theme-primary rounded-xl p-6 text-white">
+                <h3 class="text-xl font-bold mb-4">Theme Gradients</h3>
+                <p>This card uses the primary theme gradient</p>
+            </div>
+
+            <!-- Card 6: Interactive -->
+            <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-tilt">
+                <h3 class="text-xl font-bold mb-4 text-theme-primary">Interactive Card</h3>
+                <p class="text-theme-text-muted">Hover me for 3D tilt effect!</p>
+                <button class="mt-4 bg-theme-primary text-white py-2 px-4 rounded-lg btn-hover-glow">
+                    Glowing Button
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Theme Examples -->
+    <section class="p-8" id="special-effects">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center text-theme-primary">Special Theme Effects</h2>
+            
+            <!-- Cyberpunk Grid -->
+            <div class="cyber-grid p-8 rounded-xl mb-8 bg-theme-surface">
+                <h3 class="neon-text text-2xl font-bold">CYBERPUNK GRID</h3>
+                <div class="neon-border p-4 mt-4 rounded-lg">
+                    <p class="text-theme-text">Neon-bordered content with grid background</p>
+                </div>
+            </div>
+
+            <!-- Glass Navigation Example -->
+            <div class="glass-nav p-4 rounded-xl mb-8">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-theme-text">Glass Navigation</span>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-theme-text-muted hover:text-theme-primary">Home</a>
+                        <a href="#" class="text-theme-text-muted hover:text-theme-primary">About</a>
+                        <a href="#" class="text-theme-text-muted hover:text-theme-primary">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retro with Scanlines -->
+            <div class="retro-border p-8 rounded-xl relative scanlines bg-theme-surface">
+                <h3 class="retro-text text-2xl font-bold">RETRO COMPUTING</h3>
+                <p class="text-theme-text mt-4">Complete with scanlines and retro styling</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function setTheme(themeName) {
+            // Remove all existing theme classes
+            const themes = ['dark', 'cyberpunk', 'glassmorphism', 'retro', 'nature', 'ocean', 'monochrome', 'sunset'];
+            themes.forEach(theme => {
+                document.body.classList.remove(`theme-${theme}`);
+            });
+            
+            // Add the new theme class
+            document.body.classList.add(`theme-${themeName}`);
+            
+            // Update active state of theme cards
+            document.querySelectorAll('.theme-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Store theme preference
+            localStorage.setItem('windflow-theme', themeName);
+            
+            // Add some visual feedback
+            console.log(`Switched to ${themeName} theme`);
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('windflow-theme') || 'dark';
+            setTheme(savedTheme);
+        });
+
+        // Add keyboard shortcuts for theme switching
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                const themes = {
+                    '1': 'dark',
+                    '2': 'cyberpunk', 
+                    '3': 'glassmorphism',
+                    '4': 'retro',
+                    '5': 'nature',
+                    '6': 'ocean',
+                    '7': 'monochrome',
+                    '8': 'sunset'
+                };
+                
+                if (themes[e.key]) {
+                    e.preventDefault();
+                    setTheme(themes[e.key]);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

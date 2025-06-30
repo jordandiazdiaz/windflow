@@ -1,0 +1,26 @@
+# Development files
+*.log
+.DS_Store
+node_modules/
+.env
+.git/
+
+# Test files
+test/
+tests/
+*.test.js
+coverage/
+
+# Build files
+src/
+examples/
+test-project/
+
+# Config files
+.gitignore
+.eslintrc*
+.prettier*
+jest.config.*
+
+# Documentation (keep README.md)
+PUBLISHING.md

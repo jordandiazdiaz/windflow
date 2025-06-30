@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow Real World Examples</title>
+    <link rel="stylesheet" href="../dist/windflow.css">
+    <style>
+        .example-section {
+            margin-bottom: 6rem;
+        }
+        .code-toggle {
+            cursor: pointer;
+            user-select: none;
+        }
+        .code-block {
+            display: none;
+            background: #1e293b;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .code-block.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="theme-dark bg-theme-background text-theme-text">
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-theme-border">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <h1 class="text-xl font-bold text-theme-primary">WindFlow Real World Examples</h1>
+            <div class="flex gap-2">
+                <button onclick="toggleTheme()" class="theme-toggle bg-theme-surface px-3 py-1 rounded">🌙</button>
+                <a href="https://github.com/jordandiazdiaz/windflow" class="bg-theme-primary text-white px-4 py-2 rounded">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-16">
+        <!-- 1. E-commerce Product Card -->
+        <section class="example-section py-12 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-theme-primary">E-commerce Product Cards</h2>
+                    <span class="code-toggle bg-theme-surface px-4 py-2 rounded text-sm" onclick="toggleCode('ecommerce-code')">
+                        📋 Show Code
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="bg-theme-surface border border-theme-border rounded-2xl p-6 card-hover-float">
+                        <div class="relative mb-4">
+                            <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl flex items-center justify-center">
+                                <span class="text-4xl">👟</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs animate-pulse">
+                                Sale
+                            </div>
+                            <button class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:animate-heartbeat">
+                                ❤️
+                            </button>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold text-theme-text mb-2">Ultra Boost Sneakers</h3>
+                        <p class="text-theme-text-muted text-sm mb-4">Comfortable running shoes with advanced cushioning technology</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xl font-bold text-theme-primary">$129.99</span>
+                                <span class="text-sm text-theme-text-muted line-through ml-2">$159.99</span>
+                            </div>
+                            <div class="flex text-yellow-400">
+                                ⭐⭐⭐⭐⭐ <span class="text-xs text-theme-text-muted ml-1">(4.8)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-2 mb-4">
+                            <button class="w-6 h-6 bg-red-500 rounded-full border-2 border-transparent hover:border-theme-border"></button>
+                            <button class="w-6 h-6 bg-blue-500 rounded-full border-2 border-transparent hover:border-theme-border"></button>
+                            <button class="w-6 h-6 bg-black rounded-full border-2 border-transparent hover:border-theme-border"></button>
+                        </div>
+                        
+                        <button class="w-full bg-theme-primary text-white py-3 rounded-lg btn-hover-lift font-medium">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Product Card 2 with Stock Status -->
+                    <div class="bg-theme-surface border border-theme-border rounded-2xl p-6 card-hover-float">
+                        <div class="relative mb-4">
+                            <div class="w-full h-48 bg-gradient-to-br from-green-400 to-teal-600 rounded-xl flex items-center justify-center">
+                                <span class="text-4xl">🎧</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">
+                                <div class="loading-dots">
+                                    <div></div><div></div><div></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold text-theme-text mb-2">Wireless Headphones</h3>
+                        <p class="text-theme-text-muted text-sm mb-4">Premium noise-cancelling headphones with 30h battery</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xl font-bold text-theme-primary">$299.99</span>
+                            <span class="text-sm text-green-500 bg-green-500/10 px-2 py-1 rounded-full">
+                                ✅ In Stock
+                            </span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-xs text-theme-text-muted mb-2">Stock Level</p>
+                            <div class="w-full bg-theme-background rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-theme-primary text-white py-3 rounded-lg btn-hover-glow font-medium">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <!-- Product Card 3 with Animation -->
+                    <div class="bg-theme-surface border border-theme-border rounded-2xl p-6 card-hover-float">
+                        <div class="relative mb-4">
+                            <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-600 rounded-xl flex items-center justify-center">
+                                <span class="text-4xl animate-float">📱</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs animate-bounce">
+                                New
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold text-theme-text mb-2">Smart Phone Pro</h3>
+                        <p class="text-theme-text-muted text-sm mb-4">Latest flagship with AI camera and 5G connectivity</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xl font-bold text-theme-primary">$899.99</span>
+                            <div class="text-xs bg-orange-500/10 text-orange-500 px-2 py-1 rounded-full">
+                                <div class="loading-spinner w-3 h-3 border-orange-500 inline-block mr-1"></div>
+                                Pre-order
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 text-center">
+                            <p class="text-xs text-theme-text-muted mb-2">Available in:</p>
+                            <div class="text-lg font-mono text-theme-primary animate-glow">
+                                7d 12h 30m
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-orange-500 text-white py-3 rounded-lg hover:animate-tada font-medium">
+                            Pre-order Now
+                        </button>
+                    </div>
+                </div>
+
+                <div id="ecommerce-code" class="code-block">
+                    <code class="text-gray-300 text-sm">
+&lt;!-- WindFlow E-commerce Product Card --&gt;
+&lt;div class="bg-theme-surface border border-theme-border rounded-2xl p-6 card-hover-float"&gt;
+  &lt;div class="relative mb-4"&gt;
+    &lt;div class="w-full h-48 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl flex items-center justify-center"&gt;
+      &lt;span class="text-4xl"&gt;👟&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs animate-pulse"&gt;Sale&lt;/div&gt;
+    &lt;button class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:animate-heartbeat"&gt;❤️&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;h3 class="text-lg font-bold text-theme-text mb-2"&gt;Ultra Boost Sneakers&lt;/h3&gt;
+  &lt;p class="text-theme-text-muted text-sm mb-4"&gt;Comfortable running shoes with advanced cushioning&lt;/p&gt;
+  
+  &lt;div class="flex items-center justify-between mb-4"&gt;
+    &lt;div&gt;
+      &lt;span class="text-xl font-bold text-theme-primary"&gt;$129.99&lt;/span&gt;
+      &lt;span class="text-sm text-theme-text-muted line-through ml-2"&gt;$159.99&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="flex text-yellow-400"&gt;⭐⭐⭐⭐⭐&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;button class="w-full bg-theme-primary text-white py-3 rounded-lg btn-hover-lift"&gt;Add to Cart&lt;/button&gt;
+&lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Social Media Post -->
+        <section class="example-section py-12 px-4 bg-theme-surface/20">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-theme-primary">Social Media Components</h2>
+                    <span class="code-toggle bg-theme-surface px-4 py-2 rounded text-sm" onclick="toggleCode('social-code')">
+                        📋 Show Code
+                    </span>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Social Post -->
+                    <div class="bg-theme-surface border border-theme-border rounded-2xl p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-conic from-purple-500 via-pink-500 to-red-500 rounded-full p-0.5">
+                                <div class="w-full h-full bg-theme-surface rounded-full flex items-center justify-center">
+                                    <span class="text-lg">👨‍💻</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <h4 class="font-bold text-theme-text">Jordan Developer</h4>
+                                    <span class="text-blue-500">✓</span>
+                                    <span class="text-theme-text-muted text-sm">@jordandev</span>
+                                    <span class="text-theme-text-muted text-sm">•</span>
+                                    <span class="text-theme-text-muted text-sm">2h</span>
+                                </div>
+                                
+                                <p class="text-theme-text mb-4">
+                                    Just launched WindFlow CSS 2.0! 🌊 <br>
+                                    50+ animations, 8 themes, and a VS Code extension. 
+                                    <span class="text-blue-500">#WindFlowCSS #WebDev #CSS</span>
+                                </p>
+                                
+                                <div class="bg-theme-background rounded-xl p-4 mb-4 border border-theme-border">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                            <span class="text-white text-lg">🌊</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-semibold text-theme-text">WindFlow CSS Framework</h5>
+                                            <p class="text-xs text-theme-text-muted">github.com</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-theme-text-muted">Modern utility-first CSS framework with superpowers. Advanced animations, themes, and 3D effects.</p>
+                                </div>
+                                
+                                <div class="flex items-center space-x-6 text-theme-text-muted">
+                                    <button class="flex items-center space-x-1 hover:animate-heartbeat group">
+                                        <span class="group-hover:text-red-500">❤️</span>
+                                        <span class="text-sm">1.2k</span>
+                                    </button>
+                                    <button class="flex items-center space-x-1 hover:animate-rubber-band group">
+                                        <span class="group-hover:text-green-500">🔄</span>
+                                        <span class="text-sm">234</span>
+                                    </button>
+                                    <button class="flex items-center space-x-1 hover:animate-swing group">
+                                        <span class="group-hover:text-blue-500">💬</span>
+                                        <span class="text-sm">56</span>
+                                    </button>
+                                    <button class="flex items-center space-x-1 hover:animate-bounce group">
+                                        <span class="group-hover:text-yellow-500">📤</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status Update with Reactions -->
+                    <div class="bg-theme-surface border border-theme-border rounded-2xl p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                                <span class="text-lg">👩‍🎨</span>
+                            </div>
+                            
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-2 mb-3">
+                                    <h4 class="font-bold text-theme-text">Sarah Designer</h4>
+                                    <span class="text-theme-text-muted text-sm">just now</span>
+                                    <div class="loading-dots text-green-500">
+                                        <div></div><div></div><div></div>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-theme-text mb-4">
+                                    Working on a new design system with 
+                                    <span class="bg-theme-primary/20 text-theme-primary px-2 py-1 rounded-md font-mono text-sm">WindFlow CSS</span>
+                                    - the animations are absolutely incredible! 🎨✨
+                                </p>
+                                
+                                <div class="flex items-center space-x-3 mb-4">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-8 h-8 bg-red-500 rounded-full border-2 border-theme-surface animate-bounce"></div>
+                                        <div class="w-8 h-8 bg-yellow-500 rounded-full border-2 border-theme-surface animate-bounce delay-100"></div>
+                                        <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-theme-surface animate-bounce delay-200"></div>
+                                        <div class="w-8 h-8 bg-green-500 rounded-full border-2 border-theme-surface animate-bounce delay-300"></div>
+                                    </div>
+                                    <span class="text-sm text-theme-text-muted">and 12 others reacted</span>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-2 bg-theme-background px-4 py-2 rounded-lg hover:animate-jello">
+                                        <span>👍</span>
+                                        <span class="text-sm">Like</span>
+                                    </button>
+                                    <button class="flex items-center space-x-2 bg-theme-background px-4 py-2 rounded-lg hover:animate-swing">
+                                        <span>💬</span>
+                                        <span class="text-sm">Comment</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="social-code" class="code-block">
+                    <code class="text-gray-300 text-sm">
+&lt;!-- WindFlow Social Media Post --&gt;
+&lt;div class="bg-theme-surface border border-theme-border rounded-2xl p-6"&gt;
+  &lt;div class="flex items-start space-x-4"&gt;
+    &lt;div class="w-12 h-12 bg-gradient-conic from-purple-500 via-pink-500 to-red-500 rounded-full p-0.5"&gt;
+      &lt;div class="w-full h-full bg-theme-surface rounded-full flex items-center justify-center"&gt;
+        &lt;span class="text-lg"&gt;👨‍💻&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="flex-1"&gt;
+      &lt;div class="flex items-center space-x-2 mb-2"&gt;
+        &lt;h4 class="font-bold text-theme-text"&gt;Jordan Developer&lt;/h4&gt;
+        &lt;span class="text-blue-500"&gt;✓&lt;/span&gt;
+        &lt;span class="text-theme-text-muted text-sm"&gt;@jordandev&lt;/span&gt;
+      &lt;/div&gt;
+      
+      &lt;p class="text-theme-text mb-4"&gt;Just launched WindFlow CSS 2.0! 🌊&lt;/p&gt;
+      
+      &lt;div class="flex items-center space-x-6 text-theme-text-muted"&gt;
+        &lt;button class="flex items-center space-x-1 hover:animate-heartbeat group"&gt;
+          &lt;span class="group-hover:text-red-500"&gt;❤️&lt;/span&gt;
+          &lt;span class="text-sm"&gt;1.2k&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button class="flex items-center space-x-1 hover:animate-rubber-band group"&gt;
+          &lt;span class="group-hover:text-green-500"&gt;🔄&lt;/span&gt;
+          &lt;span class="text-sm"&gt;234&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Dashboard Analytics -->
+        <section class="example-section py-12 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-theme-primary">Analytics Dashboard</h2>
+                    <span class="code-toggle bg-theme-surface px-4 py-2 rounded text-sm" onclick="toggleCode('dashboard-code')">
+                        📋 Show Code
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Metrics Cards -->
+                    <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+                        <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-sm font-medium text-theme-text-muted">Total Users</h4>
+                                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="text-2xl font-bold text-theme-text mb-2 animate-glow">24,571</div>
+                            <div class="flex items-center text-sm">
+                                <span class="text-green-500 font-medium">+12%</span>
+                                <span class="text-theme-text-muted ml-2">vs last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-sm font-medium text-theme-text-muted">Revenue</h4>
+                                <div class="loading-dots text-blue-500">
+                                    <div></div><div></div><div></div>
+                                </div>
+                            </div>
+                            <div class="text-2xl font-bold text-theme-text mb-2">$142,580</div>
+                            <div class="flex items-center text-sm">
+                                <span class="text-blue-500 font-medium">+8%</span>
+                                <span class="text-theme-text-muted ml-2">vs last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-sm font-medium text-theme-text-muted">Conversion Rate</h4>
+                                <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Target</span>
+                            </div>
+                            <div class="text-2xl font-bold text-theme-text mb-2">3.24%</div>
+                            <div class="w-full bg-theme-background rounded-full h-2 mb-2">
+                                <div class="bg-yellow-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+                            </div>
+                            <div class="text-xs text-theme-text-muted">Goal: 4.0%</div>
+                        </div>
+
+                        <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-sm font-medium text-theme-text-muted">Page Views</h4>
+                                <div class="loading-spinner w-4 h-4 text-purple-500"></div>
+                            </div>
+                            <div class="text-2xl font-bold text-theme-text mb-2">1.2M</div>
+                            <div class="flex items-center text-sm">
+                                <span class="text-purple-500 font-medium">+24%</span>
+                                <span class="text-theme-text-muted ml-2">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Activity Feed -->
+                    <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+                        <h4 class="font-semibold text-theme-text mb-4">Recent Activity</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 animate-pulse"></div>
+                                <div>
+                                    <p class="text-sm text-theme-text">New user registration</p>
+                                    <p class="text-xs text-theme-text-muted">2 minutes ago</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 animate-pulse delay-100"></div>
+                                <div>
+                                    <p class="text-sm text-theme-text">Payment processed</p>
+                                    <p class="text-xs text-theme-text-muted">5 minutes ago</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 animate-pulse delay-200"></div>
+                                <div>
+                                    <p class="text-sm text-theme-text">Server backup completed</p>
+                                    <p class="text-xs text-theme-text-muted">12 minutes ago</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2 animate-pulse delay-300"></div>
+                                <div>
+                                    <p class="text-sm text-theme-text">New feature deployed</p>
+                                    <p class="text-xs text-theme-text-muted">1 hour ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Placeholder -->
+                <div class="mt-6 bg-theme-surface border border-theme-border rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h4 class="font-semibold text-theme-text">Performance Overview</h4>
+                        <div class="flex space-x-2">
+                            <button class="text-xs bg-theme-primary text-white px-3 py-1 rounded">1D</button>
+                            <button class="text-xs bg-theme-background text-theme-text px-3 py-1 rounded">7D</button>
+                            <button class="text-xs bg-theme-background text-theme-text px-3 py-1 rounded">1M</button>
+                        </div>
+                    </div>
+                    
+                    <div class="h-64 bg-theme-background rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="loading-bars text-theme-primary mb-4">
+                                <div></div><div></div><div></div><div></div><div></div>
+                            </div>
+                            <p class="text-theme-text-muted">Chart visualization would go here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboard-code" class="code-block">
+                    <code class="text-gray-300 text-sm">
+&lt;!-- WindFlow Analytics Dashboard --&gt;
+&lt;div class="grid grid-cols-1 lg:grid-cols-3 gap-6"&gt;
+  &lt;div class="lg:col-span-2 grid grid-cols-2 gap-4"&gt;
+    &lt;!-- Metric Card --&gt;
+    &lt;div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float"&gt;
+      &lt;div class="flex items-center justify-between mb-4"&gt;
+        &lt;h4 class="text-sm font-medium text-theme-text-muted"&gt;Total Users&lt;/h4&gt;
+        &lt;div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="text-2xl font-bold text-theme-text mb-2 animate-glow"&gt;24,571&lt;/div&gt;
+      &lt;div class="flex items-center text-sm"&gt;
+        &lt;span class="text-green-500 font-medium"&gt;+12%&lt;/span&gt;
+        &lt;span class="text-theme-text-muted ml-2"&gt;vs last month&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Activity Feed --&gt;
+  &lt;div class="bg-theme-surface border border-theme-border rounded-xl p-6"&gt;
+    &lt;h4 class="font-semibold text-theme-text mb-4"&gt;Recent Activity&lt;/h4&gt;
+    &lt;div class="space-y-4"&gt;
+      &lt;div class="flex items-start space-x-3"&gt;
+        &lt;div class="w-2 h-2 bg-green-500 rounded-full mt-2 animate-pulse"&gt;&lt;/div&gt;
+        &lt;div&gt;
+          &lt;p class="text-sm text-theme-text"&gt;New user registration&lt;/p&gt;
+          &lt;p class="text-xs text-theme-text-muted"&gt;2 minutes ago&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Landing Page Hero -->
+        <section class="example-section py-12 px-4 bg-theme-surface/20">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-theme-primary">Landing Page Hero</h2>
+                    <span class="code-toggle bg-theme-surface px-4 py-2 rounded text-sm" onclick="toggleCode('hero-code')">
+                        📋 Show Code
+                    </span>
+                </div>
+
+                <div class="relative min-h-screen bg-gradient-to-br from-theme-background via-theme-surface to-theme-background rounded-3xl overflow-hidden">
+                    <!-- Background Animation -->
+                    <div class="absolute inset-0">
+                        <div class="absolute w-96 h-96 bg-theme-primary/20 rounded-full blur-3xl animate-float -top-48 -left-48"></div>
+                        <div class="absolute w-96 h-96 bg-theme-secondary/20 rounded-full blur-3xl animate-float delay-1000 -bottom-48 -right-48"></div>
+                        <div class="absolute w-64 h-64 bg-theme-accent/30 rounded-full blur-2xl animate-levitate top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                    </div>
+                    
+                    <div class="relative z-10 flex items-center justify-center min-h-screen p-8">
+                        <div class="text-center max-w-4xl mx-auto">
+                            <div class="mb-6 animate-fade-in">
+                                <span class="inline-block bg-theme-primary/20 text-theme-primary px-4 py-2 rounded-full text-sm font-medium">
+                                    🚀 New Release v2.0
+                                </span>
+                            </div>
+                            
+                            <h1 class="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up">
+                                <span class="bg-gradient-to-r from-theme-primary via-theme-secondary to-theme-accent text-transparent bg-clip-text animate-glow">
+                                    Build Faster
+                                </span>
+                                <br>
+                                <span class="text-theme-text">With WindFlow</span>
+                            </h1>
+                            
+                            <p class="text-xl md:text-2xl text-theme-text-muted mb-8 animate-fade-in-up delay-200">
+                                The most advanced utility-first CSS framework with 
+                                <span class="text-theme-primary font-semibold">50+ animations</span>, 
+                                <span class="text-theme-secondary font-semibold">8 themes</span>, and 
+                                <span class="text-theme-accent font-semibold">3D effects</span>
+                            </p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up delay-400">
+                                <button class="bg-theme-primary text-white px-8 py-4 rounded-xl text-lg font-semibold btn-hover-lift">
+                                    Get Started Free
+                                </button>
+                                <button class="bg-theme-surface border border-theme-border text-theme-text px-8 py-4 rounded-xl text-lg font-semibold btn-hover-scale">
+                                    View Documentation
+                                </button>
+                            </div>
+                            
+                            <!-- Feature Highlights -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up delay-600">
+                                <div class="glass-card p-6 text-center">
+                                    <div class="text-3xl mb-3 animate-bounce">🎬</div>
+                                    <h3 class="font-bold text-theme-text mb-2">50+ Animations</h3>
+                                    <p class="text-sm text-theme-text-muted">From subtle to spectacular</p>
+                                </div>
+                                
+                                <div class="glass-card p-6 text-center">
+                                    <div class="text-3xl mb-3 animate-bounce delay-100">🎨</div>
+                                    <h3 class="font-bold text-theme-text mb-2">8 Beautiful Themes</h3>
+                                    <p class="text-sm text-theme-text-muted">Switch instantly</p>
+                                </div>
+                                
+                                <div class="glass-card p-6 text-center">
+                                    <div class="text-3xl mb-3 animate-bounce delay-200">🔧</div>
+                                    <h3 class="font-bold text-theme-text mb-2">VS Code Extension</h3>
+                                    <p class="text-sm text-theme-text-muted">Intelligent autocomplete</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Proof -->
+                            <div class="mt-16 animate-fade-in-up delay-800">
+                                <p class="text-sm text-theme-text-muted mb-4">Trusted by developers worldwide</p>
+                                <div class="flex justify-center items-center space-x-8 opacity-60">
+                                    <div class="text-2xl animate-float">🏢</div>
+                                    <div class="text-2xl animate-float delay-100">🚀</div>
+                                    <div class="text-2xl animate-float delay-200">⭐</div>
+                                    <div class="text-2xl animate-float delay-300">💎</div>
+                                    <div class="text-2xl animate-float delay-400">🎯</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="hero-code" class="code-block">
+                    <code class="text-gray-300 text-sm">
+&lt;!-- WindFlow Landing Page Hero --&gt;
+&lt;div class="relative min-h-screen bg-gradient-to-br from-theme-background via-theme-surface to-theme-background rounded-3xl overflow-hidden"&gt;
+  &lt;!-- Background Animation --&gt;
+  &lt;div class="absolute inset-0"&gt;
+    &lt;div class="absolute w-96 h-96 bg-theme-primary/20 rounded-full blur-3xl animate-float -top-48 -left-48"&gt;&lt;/div&gt;
+    &lt;div class="absolute w-96 h-96 bg-theme-secondary/20 rounded-full blur-3xl animate-float delay-1000 -bottom-48 -right-48"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="relative z-10 flex items-center justify-center min-h-screen p-8"&gt;
+    &lt;div class="text-center max-w-4xl mx-auto"&gt;
+      &lt;h1 class="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up"&gt;
+        &lt;span class="bg-gradient-to-r from-theme-primary via-theme-secondary to-theme-accent text-transparent bg-clip-text animate-glow"&gt;
+          Build Faster
+        &lt;/span&gt;
+        &lt;br&gt;
+        &lt;span class="text-theme-text"&gt;With WindFlow&lt;/span&gt;
+      &lt;/h1&gt;
+      
+      &lt;p class="text-xl md:text-2xl text-theme-text-muted mb-8 animate-fade-in-up delay-200"&gt;
+        The most advanced utility-first CSS framework
+      &lt;/p&gt;
+      
+      &lt;div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-400"&gt;
+        &lt;button class="bg-theme-primary text-white px-8 py-4 rounded-xl btn-hover-lift"&gt;Get Started&lt;/button&gt;
+        &lt;button class="bg-theme-surface border border-theme-border px-8 py-4 rounded-xl btn-hover-scale"&gt;Documentation&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="toggleTheme()" class="w-14 h-14 bg-theme-primary text-white rounded-full shadow-lg hover:animate-bounce">
+            🌙
+        </button>
+    </div>
+
+    <script>
+        let currentTheme = 'dark';
+        const themes = ['dark', 'cyberpunk', 'glassmorphism', 'retro', 'nature', 'ocean', 'monochrome', 'sunset'];
+        
+        function toggleTheme() {
+            const currentIndex = themes.indexOf(currentTheme);
+            const nextIndex = (currentIndex + 1) % themes.length;
+            setTheme(themes[nextIndex]);
+        }
+        
+        function setTheme(themeName) {
+            themes.forEach(theme => {
+                document.body.classList.remove(`theme-${theme}`);
+            });
+            document.body.classList.add(`theme-${themeName}`);
+            currentTheme = themeName;
+            localStorage.setItem('windflow-theme', themeName);
+        }
+        
+        function toggleCode(codeId) {
+            const codeBlock = document.getElementById(codeId);
+            codeBlock.classList.toggle('show');
+        }
+        
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('windflow-theme') || 'dark';
+            setTheme(savedTheme);
+        });
+    </script>
+</body>
+</html>

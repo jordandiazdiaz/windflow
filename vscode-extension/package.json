@@ -1,0 +1,148 @@
+{
+  "name": "windflow-intellisense",
+  "displayName": "WindFlow IntelliSense",
+  "description": "Intelligent WindFlow CSS class suggestions and documentation",
+  "version": "1.0.0",
+  "publisher": "windflow",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets",
+    "Formatters"
+  ],
+  "keywords": [
+    "windflow",
+    "css",
+    "autocomplete",
+    "intellisense",
+    "tailwind-alternative"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact",
+    "onLanguage:vue",
+    "onLanguage:svelte"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "windflow-config",
+        "aliases": ["WindFlow Config"],
+        "extensions": [".windflow.config.js"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "windflow-config",
+        "scopeName": "source.js.windflow",
+        "path": "./syntaxes/windflow-config.tmGrammar.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "windflow.generateCSS",
+        "title": "Generate CSS",
+        "category": "WindFlow"
+      },
+      {
+        "command": "windflow.previewTheme",
+        "title": "Preview Theme",
+        "category": "WindFlow"
+      },
+      {
+        "command": "windflow.showDocs",
+        "title": "Show Documentation",
+        "category": "WindFlow"
+      },
+      {
+        "command": "windflow.extractClasses",
+        "title": "Extract Classes to Component",
+        "category": "WindFlow"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "windflow.generateCSS",
+        "key": "ctrl+shift+w",
+        "mac": "cmd+shift+w",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "WindFlow",
+      "properties": {
+        "windflow.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable WindFlow IntelliSense"
+        },
+        "windflow.configPath": {
+          "type": "string",
+          "default": "./windflow.config.js",
+          "description": "Path to WindFlow configuration file"
+        },
+        "windflow.includePreview": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show CSS preview in hover tooltips"
+        },
+        "windflow.preferredTheme": {
+          "type": "string",
+          "default": "dark",
+          "enum": ["dark", "cyberpunk", "glassmorphism", "retro", "nature", "ocean", "monochrome", "sunset"],
+          "description": "Default theme for previews"
+        },
+        "windflow.enableExperimentalFeatures": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable experimental WindFlow features"
+        }
+      }
+    },
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets/html.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "fuse.js": "^6.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordandiazdiaz/windflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jordandiazdiaz/windflow/issues"
+  },
+  "license": "MIT"
+}

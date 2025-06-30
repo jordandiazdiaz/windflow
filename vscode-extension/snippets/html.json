@@ -1,0 +1,124 @@
+{
+  "WindFlow Card Component": {
+    "prefix": "wf-card",
+    "body": [
+      "<div class=\"bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float\">",
+      "  <h3 class=\"text-xl font-bold mb-4 text-theme-primary\">${1:Card Title}</h3>",
+      "  <p class=\"text-theme-text-muted\">${2:Card content goes here}</p>",
+      "  <button class=\"mt-4 bg-theme-primary text-white py-2 px-4 rounded-lg btn-hover-glow\">",
+      "    ${3:Action}",
+      "  </button>",
+      "</div>"
+    ],
+    "description": "WindFlow themed card component with hover effects"
+  },
+
+  "WindFlow Button": {
+    "prefix": "wf-btn",
+    "body": [
+      "<button class=\"bg-${1|theme-primary,theme-secondary,theme-accent,blue-500,green-500,red-500|} text-white px-${2|4,6,8|} py-${3|2,3,4|} rounded-${4|lg,xl,2xl|} ${5|btn-hover-lift,btn-hover-glow,btn-hover-scale,hover:animate-bounce,hover:animate-pulse|}\">${6:Button Text}</button>"
+    ],
+    "description": "WindFlow button with interactive effects"
+  },
+
+  "WindFlow Loading Dots": {
+    "prefix": "wf-loading-dots",
+    "body": [
+      "<div class=\"loading-dots text-${1|theme-primary,theme-secondary,blue-500,gray-500|}\">",
+      "  <div></div>",
+      "  <div></div>",
+      "  <div></div>",
+      "</div>"
+    ],
+    "description": "WindFlow animated loading dots"
+  },
+
+  "WindFlow Loading Spinner": {
+    "prefix": "wf-loading-spinner",
+    "body": [
+      "<div class=\"loading-spinner text-${1|theme-primary,theme-secondary,blue-500|}\"></div>"
+    ],
+    "description": "WindFlow circular loading spinner"
+  },
+
+  "WindFlow Glass Card": {
+    "prefix": "wf-glass",
+    "body": [
+      "<div class=\"glass-card p-${1|4,6,8|} rounded-${2|lg,xl,2xl|}\">",
+      "  ${3:Glass content}",
+      "</div>"
+    ],
+    "description": "WindFlow glassmorphism card"
+  },
+
+  "WindFlow Neon Text": {
+    "prefix": "wf-neon",
+    "body": [
+      "<${1|h1,h2,h3,p,span|} class=\"neon-text text-${2|theme-primary,theme-secondary,purple-500,pink-500|} animate-neon\">${3:Neon Text}</${1}>"
+    ],
+    "description": "WindFlow neon glowing text"
+  },
+
+  "WindFlow Animation Showcase": {
+    "prefix": "wf-animations",
+    "body": [
+      "<div class=\"grid grid-cols-2 md:grid-cols-4 gap-4\">",
+      "  <button class=\"bg-purple-500 text-white py-3 px-6 rounded-lg hover:animate-rubber-band\">",
+      "    Rubber Band",
+      "  </button>",
+      "  <button class=\"bg-indigo-500 text-white py-3 px-6 rounded-lg hover:animate-jello\">",
+      "    Jello",
+      "  </button>",
+      "  <button class=\"bg-pink-500 text-white py-3 px-6 rounded-lg hover:animate-swing\">",
+      "    Swing",
+      "  </button>",
+      "  <button class=\"bg-teal-500 text-white py-3 px-6 rounded-lg hover:animate-tada\">",
+      "    Tada",
+      "  </button>",
+      "</div>"
+    ],
+    "description": "WindFlow animation showcase grid"
+  },
+
+  "WindFlow Theme Selector": {
+    "prefix": "wf-theme-selector",
+    "body": [
+      "<div class=\"theme-selector\">",
+      "  <div class=\"theme-card bg-theme-surface border-theme-border\" onclick=\"setTheme('${1|dark,cyberpunk,glassmorphism,retro,nature,ocean,monochrome,sunset|}')\">",
+      "    <div class=\"theme-preview\">",
+      "      <div class=\"theme-preview-color\" style=\"background: #6366f1;\"></div>",
+      "      <div class=\"theme-preview-color\" style=\"background: #8b5cf6;\"></div>",
+      "      <div class=\"theme-preview-color\" style=\"background: #0f172a;\"></div>",
+      "      <div class=\"theme-preview-color\" style=\"background: #1e293b;\"></div>",
+      "    </div>",
+      "    <h3 class=\"font-bold text-lg text-theme-text\">${2:Theme Name}</h3>",
+      "    <p class=\"text-theme-text-muted text-sm\">${3:Theme description}</p>",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "WindFlow theme selector card"
+  },
+
+  "WindFlow Gradient Background": {
+    "prefix": "wf-gradient",
+    "body": [
+      "<div class=\"bg-gradient-${1|to-r,to-br,to-b,to-bl,to-l,to-tl,to-t,to-tr,radial,conic|} from-${2|blue-500,purple-500,pink-500,green-500,red-500|} ${3|via-purple-500,via-pink-500,via-indigo-500,via-teal-500|} to-${4|purple-600,pink-600,indigo-600,teal-600,blue-600|}\">",
+      "  ${5:Gradient content}",
+      "</div>"
+    ],
+    "description": "WindFlow advanced gradient background"
+  },
+
+  "WindFlow Text Effects": {
+    "prefix": "wf-text-effects",
+    "body": [
+      "<div class=\"space-y-4\">",
+      "  <h2 class=\"text-3xl font-bold animate-glow text-${1|theme-primary,purple-500|}\">Glowing Text</h2>",
+      "  <p class=\"text-typewriter text-${2|theme-text,gray-700|}\">Typewriter effect...</p>",
+      "  <span class=\"animate-float text-${3|theme-secondary,blue-500|}\">Floating Text</span>",
+      "  <div class=\"text-glitch text-${4|theme-accent,red-500|}\" data-text=\"${5:Glitch Text}\">${5}</div>",
+      "</div>"
+    ],
+    "description": "WindFlow text effects showcase"
+  }
+}

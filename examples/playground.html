@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow CSS Playground</title>
+    <link rel="stylesheet" href="../dist/windflow.css">
+    <style>
+        .playground-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+        }
+        .code-editor {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: none;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: none;
+            outline: none;
+        }
+        .preview-frame {
+            background: white;
+            border: none;
+        }
+        .toolbar {
+            background: #334155;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tabs {
+            display: flex;
+            background: #1e293b;
+        }
+        .tab {
+            padding: 0.5rem 1rem;
+            background: #475569;
+            color: #e2e8f0;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+        .tab.active {
+            background: #1e293b;
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+            max-height: 200px;
+            overflow-y: auto;
+            background: #0f172a;
+        }
+        .example-item {
+            padding: 0.5rem;
+            background: #1e293b;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            color: #e2e8f0;
+            font-size: 0.875rem;
+        }
+        .example-item:hover {
+            background: #334155;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .playground-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="theme-dark bg-theme-background">
+    <!-- Header -->
+    <header class="bg-theme-surface border-b border-theme-border p-4">
+        <div class="flex items-center justify-between">
+            <h1 class="text-2xl font-bold text-theme-primary">🌊 WindFlow Playground</h1>
+            <div class="flex items-center space-x-4">
+                <select id="themeSelect" class="bg-theme-background border border-theme-border rounded px-3 py-1 text-theme-text">
+                    <option value="dark">Dark Theme</option>
+                    <option value="cyberpunk">Cyberpunk</option>
+                    <option value="glassmorphism">Glassmorphism</option>
+                    <option value="retro">Retro</option>
+                    <option value="nature">Nature</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="monochrome">Monochrome</option>
+                    <option value="sunset">Sunset</option>
+                </select>
+                <button onclick="copyCode()" class="bg-theme-primary text-white px-4 py-2 rounded btn-hover-glow">
+                    📋 Copy Code
+                </button>
+                <button onclick="resetCode()" class="bg-red-500 text-white px-4 py-2 rounded hover:animate-shake">
+                    🔄 Reset
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Examples Section -->
+    <div class="bg-theme-surface border-b border-theme-border">
+        <div class="p-2">
+            <h3 class="text-sm font-semibold text-theme-text mb-2">Quick Examples:</h3>
+            <div class="example-grid">
+                <!-- Animation Examples -->
+                <div class="example-item" onclick="loadExample('button-animations')">
+                    🎬 Button Animations
+                </div>
+                <div class="example-item" onclick="loadExample('card-effects')">
+                    🃏 Card Effects
+                </div>
+                <div class="example-item" onclick="loadExample('loading-states')">
+                    ⏳ Loading States
+                </div>
+                <div class="example-item" onclick="loadExample('text-effects')">
+                    ✨ Text Effects
+                </div>
+                <div class="example-item" onclick="loadExample('3d-transforms')">
+                    🎭 3D Transforms
+                </div>
+                <div class="example-item" onclick="loadExample('gradients')">
+                    🌈 Gradients
+                </div>
+                <div class="example-item" onclick="loadExample('glassmorphism')">
+                    💨 Glassmorphism
+                </div>
+                <div class="example-item" onclick="loadExample('cyberpunk')">
+                    🤖 Cyberpunk
+                </div>
+                <div class="example-item" onclick="loadExample('social-card')">
+                    📱 Social Card
+                </div>
+                <div class="example-item" onclick="loadExample('dashboard')">
+                    📊 Dashboard
+                </div>
+                <div class="example-item" onclick="loadExample('navigation')">
+                    🧭 Navigation
+                </div>
+                <div class="example-item" onclick="loadExample('hero-section')">
+                    🚀 Hero Section
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playground -->
+    <div class="playground-container">
+        <!-- Code Editor -->
+        <div class="flex flex-col">
+            <div class="toolbar">
+                <span class="text-white font-medium">HTML Editor</span>
+                <div class="flex space-x-2">
+                    <button onclick="formatCode()" class="text-xs bg-blue-500 text-white px-2 py-1 rounded">Format</button>
+                    <button onclick="toggleFullscreen('editor')" class="text-xs bg-gray-500 text-white px-2 py-1 rounded">⛶</button>
+                </div>
+            </div>
+            <textarea id="codeEditor" class="code-editor flex-1" placeholder="Type your WindFlow HTML here...">
+<div class="theme-dark min-h-screen bg-theme-background p-8">
+  <div class="max-w-4xl mx-auto">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold text-theme-primary mb-4 animate-fade-in">
+        Welcome to WindFlow
+      </h1>
+      <p class="text-xl text-theme-text-muted animate-fade-in-up delay-200">
+        Try different animations and effects!
+      </p>
+    </div>
+
+    <!-- Interactive Buttons -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <button class="bg-purple-500 text-white py-3 px-6 rounded-lg hover:animate-rubber-band">
+        Rubber Band
+      </button>
+      <button class="bg-pink-500 text-white py-3 px-6 rounded-lg hover:animate-jello">
+        Jello
+      </button>
+      <button class="bg-blue-500 text-white py-3 px-6 rounded-lg hover:animate-swing">
+        Swing
+      </button>
+      <button class="bg-green-500 text-white py-3 px-6 rounded-lg hover:animate-tada">
+        Tada!
+      </button>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+        <div class="text-3xl mb-4 animate-bounce">🎬</div>
+        <h3 class="text-xl font-bold text-theme-text mb-2">Animations</h3>
+        <p class="text-theme-text-muted">50+ built-in animations</p>
+      </div>
+      
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+        <div class="text-3xl mb-4 animate-bounce delay-100">🎨</div>
+        <h3 class="text-xl font-bold text-theme-text mb-2">Themes</h3>
+        <p class="text-theme-text-muted">8 beautiful themes</p>
+      </div>
+      
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+        <div class="text-3xl mb-4 animate-bounce delay-200">✨</div>
+        <h3 class="text-xl font-bold text-theme-text mb-2">Effects</h3>
+        <p class="text-theme-text-muted">Modern CSS effects</p>
+      </div>
+    </div>
+
+    <!-- Loading Demo -->
+    <div class="mt-12 text-center">
+      <h3 class="text-2xl font-bold text-theme-primary mb-6">Loading Components</h3>
+      <div class="flex justify-center items-center space-x-8">
+        <div class="loading-dots text-blue-500">
+          <div></div><div></div><div></div>
+        </div>
+        <div class="loading-spinner text-purple-500"></div>
+        <div class="loading-bars text-green-500">
+          <div></div><div></div><div></div><div></div><div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></textarea>
+        </div>
+
+        <!-- Preview -->
+        <div class="flex flex-col">
+            <div class="toolbar">
+                <span class="text-white font-medium">Live Preview</span>
+                <div class="flex space-x-2">
+                    <button onclick="refreshPreview()" class="text-xs bg-green-500 text-white px-2 py-1 rounded">↻ Refresh</button>
+                    <button onclick="toggleFullscreen('preview')" class="text-xs bg-gray-500 text-white px-2 py-1 rounded">⛶</button>
+                </div>
+            </div>
+            <iframe id="previewFrame" class="preview-frame flex-1"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Examples database
+        const examples = {
+            'button-animations': `<div class="theme-dark bg-theme-background p-8">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Button Animations</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+    <button class="bg-purple-500 text-white py-3 px-6 rounded-lg hover:animate-rubber-band btn-hover-lift">
+      Rubber Band
+    </button>
+    <button class="bg-pink-500 text-white py-3 px-6 rounded-lg hover:animate-jello btn-hover-glow">
+      Jello
+    </button>
+    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg hover:animate-swing btn-hover-scale">
+      Swing
+    </button>
+    <button class="bg-green-500 text-white py-3 px-6 rounded-lg hover:animate-tada">
+      Tada!
+    </button>
+    <button class="bg-red-500 text-white py-3 px-6 rounded-lg hover:animate-wobble">
+      Wobble
+    </button>
+    <button class="bg-yellow-500 text-black py-3 px-6 rounded-lg hover:animate-shake">
+      Shake
+    </button>
+    <button class="bg-indigo-500 text-white py-3 px-6 rounded-lg hover:animate-pulse">
+      Pulse
+    </button>
+    <button class="bg-teal-500 text-white py-3 px-6 rounded-lg hover:animate-bounce">
+      Bounce
+    </button>
+  </div>
+</div>`,
+
+            'card-effects': `<div class="theme-dark bg-theme-background p-8">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Card Effects</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <!-- Float Card -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+      <div class="text-3xl mb-4">🎈</div>
+      <h3 class="text-xl font-bold text-theme-text mb-2">Hover Float</h3>
+      <p class="text-theme-text-muted">Floats up on hover</p>
+    </div>
+    
+    <!-- Tilt Card -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-tilt perspective-lg">
+      <div class="text-3xl mb-4">🎭</div>
+      <h3 class="text-xl font-bold text-theme-text mb-2">3D Tilt</h3>
+      <p class="text-theme-text-muted">3D tilt effect</p>
+    </div>
+    
+    <!-- Levitating Card -->
+    <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl p-6 animate-levitate text-white">
+      <div class="text-3xl mb-4">✨</div>
+      <h3 class="text-xl font-bold mb-2">Always Floating</h3>
+      <p class="text-white/80">Continuous levitation</p>
+    </div>
+  </div>
+</div>`,
+
+            'loading-states': `<div class="theme-dark bg-theme-background p-8">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Loading States</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+    <!-- Dots -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6 text-center">
+      <h4 class="font-bold text-theme-text mb-4">Loading Dots</h4>
+      <div class="loading-dots text-blue-500 mx-auto">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+    
+    <!-- Spinner -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6 text-center">
+      <h4 class="font-bold text-theme-text mb-4">Spinner</h4>
+      <div class="loading-spinner text-purple-500 mx-auto"></div>
+    </div>
+    
+    <!-- Bars -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6 text-center">
+      <h4 class="font-bold text-theme-text mb-4">Loading Bars</h4>
+      <div class="loading-bars text-green-500 mx-auto">
+        <div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    
+    <!-- Pulse Ring -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6 text-center">
+      <h4 class="font-bold text-theme-text mb-4">Pulse Ring</h4>
+      <div class="loading-pulse-ring text-red-500 mx-auto"></div>
+    </div>
+  </div>
+</div>`,
+
+            'text-effects': `<div class="theme-dark bg-theme-background p-8">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Text Effects</h2>
+  <div class="space-y-8 max-w-4xl mx-auto text-center">
+    <!-- Glowing Text -->
+    <div>
+      <h3 class="text-4xl font-bold animate-glow text-blue-500">Glowing Text</h3>
+      <p class="text-theme-text-muted mt-2">Continuous glow animation</p>
+    </div>
+    
+    <!-- Typewriter -->
+    <div class="bg-gray-900 p-6 rounded-xl">
+      <div class="text-green-400 font-mono text-left">
+        <span class="text-gray-500">$ </span>
+        <span class="text-typewriter">npm install windflow-css</span>
+      </div>
+    </div>
+    
+    <!-- Gradient Text -->
+    <div>
+      <h3 class="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text animate-pulse">
+        GRADIENT TEXT
+      </h3>
+      <p class="text-theme-text-muted mt-2">Animated gradient background</p>
+    </div>
+    
+    <!-- Floating Letters -->
+    <div>
+      <div class="text-4xl font-bold text-theme-primary">
+        <span class="inline-block animate-float">W</span>
+        <span class="inline-block animate-float delay-100">I</span>
+        <span class="inline-block animate-float delay-200">N</span>
+        <span class="inline-block animate-float delay-300">D</span>
+        <span class="inline-block animate-float delay-400">F</span>
+        <span class="inline-block animate-float delay-500">L</span>
+        <span class="inline-block animate-float delay-700">O</span>
+        <span class="inline-block animate-float delay-800">W</span>
+      </div>
+      <p class="text-theme-text-muted mt-2">Each letter floats independently</p>
+    </div>
+  </div>
+</div>`,
+
+            '3d-transforms': `<div class="theme-dark bg-theme-background p-8 perspective-lg">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">3D Transforms</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <!-- 3D Flip Card -->
+    <div class="relative h-64 perspective-lg">
+      <div class="absolute inset-0 transform hover:rotate-y-180 transition-transform duration-700 transform-3d cursor-pointer">
+        <!-- Front -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-6 backface-hidden flex items-center justify-center">
+          <div class="text-center text-white">
+            <div class="text-4xl mb-2">🚀</div>
+            <h3 class="text-xl font-bold">Hover to Flip</h3>
+          </div>
+        </div>
+        <!-- Back -->
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl p-6 backface-hidden rotate-y-180 flex items-center justify-center">
+          <div class="text-center text-white">
+            <h3 class="text-xl font-bold mb-2">Back Side!</h3>
+            <p class="text-white/80">3D CSS magic ✨</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Rotating Cube -->
+    <div class="text-center">
+      <div class="w-24 h-24 mx-auto mb-4 perspective-lg">
+        <div class="w-full h-full bg-gradient-to-br from-green-400 to-blue-500 rounded-lg transform hover:rotate-x-45 hover:rotate-y-45 transition-transform duration-500">
+          <div class="w-full h-full flex items-center justify-center text-white text-2xl">
+            🎲
+          </div>
+        </div>
+      </div>
+      <h3 class="text-lg font-bold text-theme-text">3D Rotation</h3>
+      <p class="text-theme-text-muted text-sm">Hover to rotate</p>
+    </div>
+    
+    <!-- Levitating Element -->
+    <div class="text-center">
+      <div class="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-levitate flex items-center justify-center text-2xl">
+        ⭐
+      </div>
+      <h3 class="text-lg font-bold text-theme-text">Levitation</h3>
+      <p class="text-theme-text-muted text-sm">Always floating in 3D</p>
+    </div>
+  </div>
+</div>`,
+
+            'gradients': `<div class="theme-dark bg-theme-background p-8">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Advanced Gradients</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <!-- Linear Gradients -->
+    <div class="h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold">
+      Linear Gradient
+    </div>
+    
+    <!-- Radial Gradients -->
+    <div class="h-32 bg-gradient-radial from-blue-400 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold">
+      Radial Gradient
+    </div>
+    
+    <!-- Conic Gradients -->
+    <div class="h-32 bg-gradient-conic from-red-500 via-yellow-500 to-green-500 rounded-xl flex items-center justify-center text-white font-bold">
+      Conic Gradient
+    </div>
+    
+    <!-- Aurora Effect -->
+    <div class="h-32 bg-aurora rounded-xl flex items-center justify-center text-white font-bold">
+      Aurora Effect
+    </div>
+    
+    <!-- Mesh Gradient -->
+    <div class="h-32 bg-mesh-gradient rounded-xl flex items-center justify-center text-white font-bold">
+      Mesh Gradient
+    </div>
+    
+    <!-- Custom Gradient -->
+    <div class="h-32 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white font-bold animate-pulse">
+      Animated Gradient
+    </div>
+  </div>
+</div>`,
+
+            'glassmorphism': `<div class="theme-glassmorphism min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 p-8">
+  <h2 class="text-3xl font-bold text-white mb-8 text-center">Glassmorphism Effects</h2>
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Glass Card -->
+    <div class="glass-card p-8 text-center">
+      <h3 class="text-2xl font-bold text-white mb-4">Glass Card</h3>
+      <p class="text-white/90 mb-6">Beautiful glass effect with backdrop blur</p>
+      <button class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg border border-white/30 hover:bg-white/30 transition-all">
+        Glass Button
+      </button>
+    </div>
+    
+    <!-- Glass Navigation -->
+    <div class="glass-nav p-4 rounded-xl">
+      <div class="flex justify-between items-center">
+        <span class="text-white font-bold text-xl">Glass Nav</span>
+        <div class="flex space-x-6">
+          <a href="#" class="text-white/80 hover:text-white transition-colors">Home</a>
+          <a href="#" class="text-white/80 hover:text-white transition-colors">About</a>
+          <a href="#" class="text-white/80 hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Layered Glass -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="backdrop-blur-sm bg-white/10 rounded-lg p-6 border border-white/20">
+        <h4 class="text-white font-bold mb-2">Light Blur</h4>
+        <p class="text-white/80 text-sm">Subtle glass effect</p>
+      </div>
+      <div class="backdrop-blur-md bg-white/20 rounded-lg p-6 border border-white/30">
+        <h4 class="text-white font-bold mb-2">Medium Blur</h4>
+        <p class="text-white/80 text-sm">Balanced glass effect</p>
+      </div>
+      <div class="backdrop-blur-xl bg-white/30 rounded-lg p-6 border border-white/40">
+        <h4 class="text-white font-bold mb-2">Heavy Blur</h4>
+        <p class="text-white/80 text-sm">Strong glass effect</p>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+            'cyberpunk': `<div class="theme-cyberpunk min-h-screen bg-theme-background cyber-grid p-8">
+  <h2 class="text-3xl font-bold neon-text text-center mb-8 animate-glow">CYBERPUNK INTERFACE</h2>
+  
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Terminal Window -->
+    <div class="bg-black border-2 neon-border rounded-lg p-6 font-mono">
+      <div class="flex items-center mb-4">
+        <div class="flex space-x-2">
+          <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+          <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+          <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+        </div>
+        <span class="ml-4 text-theme-primary">TERMINAL_v2.0</span>
+      </div>
+      
+      <div class="space-y-2 text-theme-secondary">
+        <div><span class="text-theme-primary">$</span> system.status()</div>
+        <div class="text-green-400">STATUS: ONLINE</div>
+        <div><span class="text-theme-primary">$</span> windflow.init()</div>
+        <div class="text-blue-400">WINDFLOW CSS LOADED...</div>
+        <div class="text-typewriter">READY FOR INPUT_</div>
+      </div>
+    </div>
+    
+    <!-- Control Panel -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-theme-surface neon-border rounded-lg p-4 text-center">
+        <div class="text-2xl mb-2 animate-pulse">⚡</div>
+        <div class="text-theme-primary font-bold">POWER</div>
+        <div class="text-xs text-theme-text-muted">100%</div>
+      </div>
+      
+      <div class="bg-theme-surface neon-border rounded-lg p-4 text-center">
+        <div class="text-2xl mb-2 animate-bounce">📡</div>
+        <div class="text-theme-secondary font-bold">SIGNAL</div>
+        <div class="text-xs text-theme-text-muted">STRONG</div>
+      </div>
+      
+      <div class="bg-theme-surface neon-border rounded-lg p-4 text-center">
+        <div class="text-2xl mb-2 animate-spin">🔄</div>
+        <div class="text-theme-accent font-bold">SYNC</div>
+        <div class="text-xs text-theme-text-muted">ACTIVE</div>
+      </div>
+    </div>
+    
+    <!-- Data Stream -->
+    <div class="bg-black neon-border rounded-lg p-6">
+      <h3 class="neon-text mb-4">DATA STREAM</h3>
+      <div class="grid grid-cols-4 gap-2 font-mono text-xs">
+        <div class="text-green-400 animate-matrix">01001001</div>
+        <div class="text-blue-400 animate-matrix delay-100">11010001</div>
+        <div class="text-purple-400 animate-matrix delay-200">10101010</div>
+        <div class="text-pink-400 animate-matrix delay-300">01110110</div>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+            'social-card': `<div class="theme-dark bg-theme-background p-8">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Social Media Card</h2>
+  
+  <div class="max-w-md mx-auto bg-theme-surface border border-theme-border rounded-2xl p-6">
+    <div class="flex items-start space-x-4">
+      <div class="w-12 h-12 bg-gradient-conic from-purple-500 via-pink-500 to-red-500 rounded-full p-0.5">
+        <div class="w-full h-full bg-theme-surface rounded-full flex items-center justify-center">
+          <span class="text-lg">👨‍💻</span>
+        </div>
+      </div>
+      
+      <div class="flex-1">
+        <div class="flex items-center space-x-2 mb-2">
+          <h4 class="font-bold text-theme-text">Jordan Developer</h4>
+          <span class="text-blue-500">✓</span>
+          <span class="text-theme-text-muted text-sm">@jordandev</span>
+        </div>
+        
+        <p class="text-theme-text mb-4">
+          Just launched WindFlow CSS 2.0! 🌊 <br>
+          50+ animations, 8 themes, and a VS Code extension. 
+          <span class="text-blue-500">#WindFlowCSS #WebDev</span>
+        </p>
+        
+        <div class="bg-theme-background rounded-xl p-4 mb-4 border border-theme-border">
+          <div class="flex items-center space-x-3 mb-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <span class="text-white text-lg">🌊</span>
+            </div>
+            <div>
+              <h5 class="font-semibold text-theme-text">WindFlow CSS</h5>
+              <p class="text-xs text-theme-text-muted">github.com</p>
+            </div>
+          </div>
+          <p class="text-sm text-theme-text-muted">Modern utility-first CSS framework with superpowers.</p>
+        </div>
+        
+        <div class="flex items-center space-x-6 text-theme-text-muted">
+          <button class="flex items-center space-x-1 hover:animate-heartbeat group">
+            <span class="group-hover:text-red-500">❤️</span>
+            <span class="text-sm">1.2k</span>
+          </button>
+          <button class="flex items-center space-x-1 hover:animate-rubber-band group">
+            <span class="group-hover:text-green-500">🔄</span>
+            <span class="text-sm">234</span>
+          </button>
+          <button class="flex items-center space-x-1 hover:animate-swing group">
+            <span class="group-hover:text-blue-500">💬</span>
+            <span class="text-sm">56</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+            'dashboard': `<div class="theme-dark bg-theme-background p-8">
+  <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Dashboard</h2>
+  
+  <div class="max-w-6xl mx-auto">
+    <!-- Metrics Row -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="text-sm font-medium text-theme-text-muted">Users</h4>
+          <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+        </div>
+        <div class="text-2xl font-bold text-theme-text animate-glow">24,571</div>
+        <div class="text-sm text-green-500 font-medium">+12%</div>
+      </div>
+      
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="text-sm font-medium text-theme-text-muted">Revenue</h4>
+          <div class="loading-dots text-blue-500">
+            <div></div><div></div><div></div>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-theme-text">$142K</div>
+        <div class="text-sm text-blue-500 font-medium">+8%</div>
+      </div>
+      
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="text-sm font-medium text-theme-text-muted">Orders</h4>
+          <div class="loading-spinner w-4 h-4 text-purple-500"></div>
+        </div>
+        <div class="text-2xl font-bold text-theme-text">8,429</div>
+        <div class="text-sm text-purple-500 font-medium">+24%</div>
+      </div>
+      
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 card-hover-float">
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="text-sm font-medium text-theme-text-muted">Conversion</h4>
+          <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Goal</span>
+        </div>
+        <div class="text-2xl font-bold text-theme-text">3.24%</div>
+        <div class="w-full bg-theme-background rounded-full h-2">
+          <div class="bg-yellow-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Chart Area -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6 mb-8">
+      <h3 class="font-semibold text-theme-text mb-4">Performance Overview</h3>
+      <div class="h-48 bg-theme-background rounded-lg flex items-center justify-center">
+        <div class="text-center">
+          <div class="loading-bars text-theme-primary mb-4">
+            <div></div><div></div><div></div><div></div><div></div>
+          </div>
+          <p class="text-theme-text-muted">Chart would render here</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Activity Feed -->
+    <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+      <h3 class="font-semibold text-theme-text mb-4">Recent Activity</h3>
+      <div class="space-y-4">
+        <div class="flex items-start space-x-3">
+          <div class="w-2 h-2 bg-green-500 rounded-full mt-2 animate-pulse"></div>
+          <div>
+            <p class="text-sm text-theme-text">New user registration</p>
+            <p class="text-xs text-theme-text-muted">2 minutes ago</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-3">
+          <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 animate-pulse delay-100"></div>
+          <div>
+            <p class="text-sm text-theme-text">Payment processed</p>
+            <p class="text-xs text-theme-text-muted">5 minutes ago</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-3">
+          <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 animate-pulse delay-200"></div>
+          <div>
+            <p class="text-sm text-theme-text">Server backup completed</p>
+            <p class="text-xs text-theme-text-muted">12 minutes ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+            'navigation': `<div class="theme-dark bg-theme-background min-h-screen">
+  <!-- Glass Navigation -->
+  <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-theme-border">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+      <div class="flex items-center space-x-8">
+        <h1 class="text-xl font-bold text-theme-primary">🌊 WindFlow</h1>
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="text-theme-text-muted hover:text-theme-primary transition-colors hover:animate-bounce">Home</a>
+          <a href="#" class="text-theme-text-muted hover:text-theme-primary transition-colors hover:animate-bounce">Features</a>
+          <a href="#" class="text-theme-text-muted hover:text-theme-primary transition-colors hover:animate-bounce">Docs</a>
+          <a href="#" class="text-theme-text-muted hover:text-theme-primary transition-colors hover:animate-bounce">Examples</a>
+        </div>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <button class="bg-theme-surface hover:bg-theme-surface-light px-3 py-2 rounded-lg transition-colors">
+          🌙
+        </button>
+        <button class="bg-theme-primary text-white px-4 py-2 rounded-lg btn-hover-glow">
+          Get Started
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Content -->
+  <div class="pt-16 p-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-theme-primary mb-6">Navigation Examples</h2>
+      
+      <!-- Sidebar Navigation -->
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6 mb-8">
+        <h3 class="text-xl font-bold text-theme-text mb-4">Sidebar Navigation</h3>
+        <div class="flex">
+          <div class="w-64 bg-theme-background border-r border-theme-border p-4">
+            <nav class="space-y-2">
+              <a href="#" class="flex items-center space-x-2 p-2 rounded-lg bg-theme-primary text-white">
+                <span>📊</span>
+                <span>Dashboard</span>
+              </a>
+              <a href="#" class="flex items-center space-x-2 p-2 rounded-lg text-theme-text-muted hover:bg-theme-surface-light hover:animate-slide-in-right">
+                <span>👥</span>
+                <span>Users</span>
+              </a>
+              <a href="#" class="flex items-center space-x-2 p-2 rounded-lg text-theme-text-muted hover:bg-theme-surface-light hover:animate-slide-in-right">
+                <span>⚙️</span>
+                <span>Settings</span>
+              </a>
+            </nav>
+          </div>
+          <div class="flex-1 p-6">
+            <h4 class="text-lg font-semibold text-theme-text mb-2">Main Content Area</h4>
+            <p class="text-theme-text-muted">Content would be displayed here</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tab Navigation -->
+      <div class="bg-theme-surface border border-theme-border rounded-xl p-6">
+        <h3 class="text-xl font-bold text-theme-text mb-4">Tab Navigation</h3>
+        <div class="border-b border-theme-border mb-4">
+          <nav class="flex space-x-8">
+            <button class="py-2 px-1 border-b-2 border-theme-primary text-theme-primary font-medium">Overview</button>
+            <button class="py-2 px-1 border-b-2 border-transparent text-theme-text-muted hover:text-theme-text hover:animate-bounce">Analytics</button>
+            <button class="py-2 px-1 border-b-2 border-transparent text-theme-text-muted hover:text-theme-text hover:animate-bounce">Reports</button>
+            <button class="py-2 px-1 border-b-2 border-transparent text-theme-text-muted hover:text-theme-text hover:animate-bounce">Settings</button>
+          </nav>
+        </div>
+        <div class="text-left">
+          <h4 class="font-semibold text-theme-text mb-2">Tab Content</h4>
+          <p class="text-theme-text-muted">This is the overview tab content with WindFlow styling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+            'hero-section': `<div class="theme-dark min-h-screen bg-gradient-to-br from-theme-background via-theme-surface to-theme-background relative overflow-hidden">
+  <!-- Background Animation -->
+  <div class="absolute inset-0">
+    <div class="absolute w-96 h-96 bg-theme-primary/20 rounded-full blur-3xl animate-float -top-48 -left-48"></div>
+    <div class="absolute w-96 h-96 bg-theme-secondary/20 rounded-full blur-3xl animate-float delay-1000 -bottom-48 -right-48"></div>
+    <div class="absolute w-64 h-64 bg-theme-accent/30 rounded-full blur-2xl animate-levitate top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+  </div>
+  
+  <div class="relative z-10 flex items-center justify-center min-h-screen p-8">
+    <div class="text-center max-w-4xl mx-auto">
+      <div class="mb-6 animate-fade-in">
+        <span class="inline-block bg-theme-primary/20 text-theme-primary px-4 py-2 rounded-full text-sm font-medium">
+          🚀 New Release v2.0
+        </span>
+      </div>
+      
+      <h1 class="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up">
+        <span class="bg-gradient-to-r from-theme-primary via-theme-secondary to-theme-accent text-transparent bg-clip-text animate-glow">
+          Build Faster
+        </span>
+        <br>
+        <span class="text-theme-text">With WindFlow</span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-theme-text-muted mb-8 animate-fade-in-up delay-200">
+        The most advanced utility-first CSS framework with 
+        <span class="text-theme-primary font-semibold">50+ animations</span>, 
+        <span class="text-theme-secondary font-semibold">8 themes</span>, and 
+        <span class="text-theme-accent font-semibold">3D effects</span>
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up delay-400">
+        <button class="bg-theme-primary text-white px-8 py-4 rounded-xl text-lg font-semibold btn-hover-lift">
+          Get Started Free
+        </button>
+        <button class="bg-theme-surface border border-theme-border text-theme-text px-8 py-4 rounded-xl text-lg font-semibold btn-hover-scale">
+          View Documentation
+        </button>
+      </div>
+      
+      <!-- Feature Highlights -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up delay-600">
+        <div class="glass-card p-6 text-center">
+          <div class="text-3xl mb-3 animate-bounce">🎬</div>
+          <h3 class="font-bold text-theme-text mb-2">50+ Animations</h3>
+          <p class="text-sm text-theme-text-muted">From subtle to spectacular</p>
+        </div>
+        
+        <div class="glass-card p-6 text-center">
+          <div class="text-3xl mb-3 animate-bounce delay-100">🎨</div>
+          <h3 class="font-bold text-theme-text mb-2">8 Beautiful Themes</h3>
+          <p class="text-sm text-theme-text-muted">Switch instantly</p>
+        </div>
+        
+        <div class="glass-card p-6 text-center">
+          <div class="text-3xl mb-3 animate-bounce delay-200">🔧</div>
+          <h3 class="font-bold text-theme-text mb-2">VS Code Extension</h3>
+          <p class="text-sm text-theme-text-muted">Intelligent autocomplete</p>
+        </div>
+      </div>
+      
+      <!-- Social Proof -->
+      <div class="mt-16 animate-fade-in-up delay-800">
+        <p class="text-sm text-theme-text-muted mb-4">Trusted by developers worldwide</p>
+        <div class="flex justify-center items-center space-x-8 opacity-60">
+          <div class="text-2xl animate-float">🏢</div>
+          <div class="text-2xl animate-float delay-100">🚀</div>
+          <div class="text-2xl animate-float delay-200">⭐</div>
+          <div class="text-2xl animate-float delay-300">💎</div>
+          <div class="text-2xl animate-float delay-400">🎯</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`
+        };
+
+        // Initialize
+        let currentTheme = 'dark';
+        
+        // Update preview
+        function updatePreview() {
+            const code = document.getElementById('codeEditor').value;
+            const theme = document.getElementById('themeSelect').value;
+            
+            const fullHTML = \`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow Preview</title>
+    <link rel="stylesheet" href="../dist/windflow.css">
+    <style>
+        body { margin: 0; padding: 0; }
+    </style>
+</head>
+<body class="theme-\${theme}">
+\${code}
+</body>
+</html>\`;
+            
+            const iframe = document.getElementById('previewFrame');
+            iframe.srcdoc = fullHTML;
+        }
+
+        // Load example
+        function loadExample(exampleKey) {
+            if (examples[exampleKey]) {
+                document.getElementById('codeEditor').value = examples[exampleKey];
+                updatePreview();
+            }
+        }
+
+        // Theme change
+        document.getElementById('themeSelect').addEventListener('change', function() {
+            currentTheme = this.value;
+            document.body.classList.remove('theme-dark', 'theme-cyberpunk', 'theme-glassmorphism', 'theme-retro', 'theme-nature', 'theme-ocean', 'theme-monochrome', 'theme-sunset');
+            document.body.classList.add(\`theme-\${currentTheme}\`);
+            updatePreview();
+        });
+
+        // Code editor change
+        document.getElementById('codeEditor').addEventListener('input', updatePreview);
+
+        // Copy code
+        function copyCode() {
+            const code = document.getElementById('codeEditor').value;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard!');
+            });
+        }
+
+        // Reset code
+        function resetCode() {
+            loadExample('button-animations');
+        }
+
+        // Format code (basic)
+        function formatCode() {
+            let code = document.getElementById('codeEditor').value;
+            // Basic HTML formatting
+            code = code.replace(/></g, '>\\n<');
+            code = code.replace(/\\n\\s*\\n/g, '\\n');
+            document.getElementById('codeEditor').value = code;
+            updatePreview();
+        }
+
+        // Refresh preview
+        function refreshPreview() {
+            updatePreview();
+        }
+
+        // Toggle fullscreen
+        function toggleFullscreen(section) {
+            const container = document.querySelector('.playground-container');
+            if (section === 'editor') {
+                container.style.gridTemplateColumns = container.style.gridTemplateColumns === '1fr 0fr' ? '1fr 1fr' : '1fr 0fr';
+            } else {
+                container.style.gridTemplateColumns = container.style.gridTemplateColumns === '0fr 1fr' ? '1fr 1fr' : '0fr 1fr';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadExample('button-animations');
+        });
+    </script>
+</body>
+</html>
