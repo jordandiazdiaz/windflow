@@ -1,5 +1,5 @@
 {
-  "name": "windflow",
+  "name": "windflow-css",
   "version": "1.0.0",
   "description": "A modern CSS framework inspired by Tailwind with enhanced features",
   "main": "dist/windflow.css",
@@ -17,7 +17,10 @@
     "windflow",
     "tailwind-alternative"
   ],
-  "author": "Your Name",
+  "author": "Jordan Diaz",
+  "bin": {
+    "windflow": "./cli.js"
+  },
   "license": "MIT",
   "devDependencies": {
     "postcss": "^8.4.31",
@@ -29,6 +32,18 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/windflow.git"
-  }
+    "url": "https://github.com/jordandiazdiaz/windflow.git"
+  },
+  "homepage": "https://github.com/jordandiazdiaz/windflow#readme",
+  "bugs": {
+    "url": "https://github.com/jordandiazdiaz/windflow/issues"
+  },
+  "files": [
+    "dist/",
+    "cli.js",
+    "windflow.config.js",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ]
 }
