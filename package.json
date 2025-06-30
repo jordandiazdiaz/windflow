@@ -21,7 +21,7 @@
   ],
   "author": "Jordan Diaz",
   "bin": {
-    "windflow": "./cli.js"
+    "windflow": "cli.js"
   },
   "license": "MIT",
   "devDependencies": {
@@ -34,7 +34,7 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/jordandiazdiaz/windflow.git"
+    "url": "git+https://github.com/jordandiazdiaz/windflow.git"
   },
   "homepage": "https://github.com/jordandiazdiaz/windflow#readme",
   "bugs": {
