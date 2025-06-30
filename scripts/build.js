@@ -108,56 +108,67 @@ class WindFlowBuilder {
   }
 
   build() {
-    const css = this.generateCSS();
-    const outputPath = path.join(__dirname, '..', 'dist', 'windflow.css');
-    
-    // Ensure dist directory exists
-    const distDir = path.dirname(outputPath);
-    if (!fs.existsSync(distDir)) {
-      fs.mkdirSync(distDir, { recursive: true });
+    try {
+      const css = this.generateCSS();
+      
+      // Ensure dist directory exists
+      const distDir = path.dirname(this.config.output.path);
+      if (!fs.existsSync(distDir)) {
+        fs.mkdirSync(distDir, { recursive: true });
+      }
+      
+      // Write CSS file
+      fs.writeFileSync(this.config.output.path, css);
+      
+      const stats = fs.statSync(this.config.output.path);
+      const fileSizeInKB = (stats.size / 1024).toFixed(2);
+      
+      console.log(`✅ WindFlow CSS built successfully!`);
+      console.log(`📁 Output: ${this.config.output.path}`);
+      console.log(`📊 Size: ${fileSizeInKB} KB`);
+      
+      return css;
+    } catch (error) {
+      console.error('❌ Build failed:', error.message);
+      process.exit(1);
     }
-    
-    fs.writeFileSync(outputPath, css);
-    
-    const sizeKB = (css.length / 1024).toFixed(2);
-    console.log(`\n✅ WindFlow CSS built successfully!`);
-    console.log(`📊 Size: ${sizeKB}KB`);
-    console.log(`📁 Output: ${outputPath}`);
-    console.log(`🎉 Ready to use in your projects!\n`);
   }
 
   watch() {
-    console.log('👀 Watching for changes...\n');
+    if (!chokidar) {
+      console.error('❌ Watch mode requires chokidar');
+      return;
+    }
+
+    console.log('👀 Watching for changes...');
     
-    const watcher = chokidar.watch([
-      'src/**/*.js', 
-      'windflow.config.js'
-    ], {
-      persistent: true,
-      ignoreInitial: true
+    const watcher = chokidar.watch(['src/**/*.js', 'windflow.config.js'], {
+      ignored: /node_modules/,
+      persistent: true
     });
-    
-    watcher.on('change', (changedPath) => {
-      console.log(`\n📝 File changed: ${changedPath}`);
+
+    watcher.on('change', (filePath) => {
+      console.log(`\n🔄 File changed: ${filePath}`);
+      
+      // Clear require cache for the changed file
+      delete require.cache[require.resolve(path.resolve(filePath))];
+      
+      // Rebuild
       this.build();
     });
-    
-    watcher.on('add', (addedPath) => {
-      console.log(`\n📄 File added: ${addedPath}`);
-      this.build();
-    });
-    
-    watcher.on('unlink', (removedPath) => {
-      console.log(`\n🗑️  File removed: ${removedPath}`);
-      this.build();
-    });
+
+    // Initial build
+    this.build();
   }
 }
 
-// Run the builder
+// Main execution
 const builder = new WindFlowBuilder();
-builder.build();
 
 if (process.argv.includes('--watch')) {
   builder.watch();
+} else {
+  builder.build();
 }
+
+module.exports = WindFlowBuilder;

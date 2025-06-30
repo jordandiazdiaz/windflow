@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow Example</title>
+    <link rel="stylesheet" href="dist/windflow.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section with Advanced Gradient -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+        <div class="text-center px-4">
+            <h1 class="text-6xl font-bold text-white mb-4 animate-fade-in">
+                Welcome to WindFlow
+            </h1>
+            <p class="text-xl text-white/90 mb-8 animate-fade-in-up">
+                A modern CSS framework with enhanced features
+            </p>
+            <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold 
+                         hover:scale-105 transform transition-all duration-300 
+                         shadow-xl hover:shadow-2xl animate-bounce">
+                Get Started
+            </button>
+        </div>
+    </section>
+
+    <!-- Feature Cards with 3D Transforms -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">
+                Enhanced Features
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transform hover:rotate-y-12 
+                           transition-transform duration-500 transform-3d">
+                    <div class="w-16 h-16 bg-gradient-radial from-blue-400 to-blue-600 
+                              rounded-full mb-4 animate-pulse"></div>
+                    <h3 class="text-xl font-semibold mb-2">Advanced Animations</h3>
+                    <p class="text-gray-600">
+                        30+ built-in animations including 3D effects, with customizable duration and timing
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transform hover:rotate-y-12 
+                           transition-transform duration-500 transform-3d">
+                    <div class="w-16 h-16 bg-gradient-conic from-green-400 via-blue-500 to-purple-600 
+                              rounded-full mb-4 animate-spin"></div>
+                    <h3 class="text-xl font-semibold mb-2">Modern Gradients</h3>
+                    <p class="text-gray-600">
+                        Linear, radial, conic, and mesh gradients with easy-to-use utility classes
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transform hover:rotate-y-12 
+                           transition-transform duration-500 transform-3d">
+                    <div class="w-16 h-16 bg-gradient-to-tr from-pink-400 to-red-600 
+                              rounded-full mb-4 animate-wiggle"></div>
+                    <h3 class="text-xl font-semibold mb-2">3D Transforms</h3>
+                    <p class="text-gray-600">
+                        Full 3D transform support with perspective, rotation, and transform-style utilities
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glassmorphism Example -->
+    <section class="py-20 px-4 bg-gradient-to-br from-purple-400 to-indigo-600">
+        <div class="max-w-4xl mx-auto">
+            <div class="backdrop-blur-lg bg-white/20 rounded-2xl p-8 shadow-2xl border border-white/30">
+                <h2 class="text-3xl font-bold text-white mb-4">Glassmorphism Support</h2>
+                <p class="text-white/90 mb-6">
+                    Built-in backdrop filters for modern glass effects. Combine with opacity utilities
+                    for beautiful, translucent designs.
+                </p>
+                <div class="flex gap-4">
+                    <div class="backdrop-blur-sm bg-white/10 rounded-lg p-4 border border-white/20">
+                        Subtle Blur
+                    </div>
+                    <div class="backdrop-blur-md bg-white/10 rounded-lg p-4 border border-white/20">
+                        Medium Blur
+                    </div>
+                    <div class="backdrop-blur-xl bg-white/10 rounded-lg p-4 border border-white/20">
+                        Strong Blur
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Container Queries Demo -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Container Queries Ready</h2>
+            <div class="container-type-inline-size">
+                <div class="bg-gray-100 rounded-lg p-8">
+                    <p class="text-gray-700">
+                        WindFlow includes utilities for CSS Container Queries, allowing truly responsive
+                        components that adapt based on their container size, not just viewport.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
