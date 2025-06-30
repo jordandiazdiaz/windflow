@@ -5,6 +5,38 @@ All notable changes to WindFlow CSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2024-06-30
+
+### 🔧 **Improved - Modular Architecture**
+- **Completely reorganized codebase**: Separated monolithic build.js into 15+ modular files
+- **Enhanced maintainability**: Each feature now has its own dedicated file
+- **Better developer experience**: Easier to find, modify, and extend specific functionality
+- **Improved build system**: More detailed logging and better error handling
+- **Verification system**: Added comprehensive test suite to verify all examples work
+- **Documentation**: Added detailed source code documentation and architecture guide
+
+#### 🏗️ **New File Structure**
+- `src/core/` - Reset and base styles
+- `src/utilities/` - 13 modular utility files (animations, colors, typography, etc.)
+- `src/components/` - Theme system and components
+- `src/themes/` - Theme definitions
+- `src/config/` - Configuration management
+- `scripts/verify-examples.js` - Automated verification system
+
+#### 📊 **Verification System**
+- **72 automated checks** ensuring all features work correctly
+- **Comprehensive testing** of animations, themes, responsive classes, and more
+- **NPM scripts**: `npm run verify` and `npm run verify-build`
+- **Continuous validation** of example files and CSS generation
+
+#### 🎯 **No Breaking Changes**
+- Same 315.91KB CSS output
+- All existing classes and features preserved
+- Backward compatible with v2.0.0
+- All examples continue working perfectly
+
+---
+
 ## [2.0.0] - 2024-06-30
 
 ### 🎉 Major Release - WindFlow Gets Superpowers!
