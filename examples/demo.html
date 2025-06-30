@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow Demo - Enhanced Tailwind Alternative</title>
+    <link rel="stylesheet" href="../dist/windflow.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section with Advanced Gradient -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse -top-48 -left-48"></div>
+            <div class="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse -bottom-48 -right-48 delay-1000"></div>
+        </div>
+        
+        <div class="text-center px-4 relative z-10">
+            <h1 class="text-7xl font-bold text-white mb-6 animate-fade-in">
+                WindFlow CSS
+            </h1>
+            <p class="text-2xl text-white/90 mb-8 animate-fade-in-up delay-200">
+                Tailwind with superpowers ⚡
+            </p>
+            <div class="flex gap-4 justify-center">
+                <button class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold 
+                             hover:scale-105 transform transition-all duration-300 
+                             shadow-xl hover:shadow-2xl animate-bounce">
+                    Get Started
+                </button>
+                <button class="bg-white/20 backdrop-blur-lg text-white px-8 py-4 rounded-xl font-semibold 
+                             hover:bg-white/30 transition-all duration-300 border border-white/30">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-600 to-indigo-600 text-transparent bg-clip-text">
+                Why WindFlow?
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Animation Card -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 perspective-lg">
+                    <div class="transform hover:rotate-y-12 transition-transform duration-500 transform-3d">
+                        <div class="w-20 h-20 bg-gradient-radial from-purple-400 to-purple-600 rounded-full mb-6 animate-heartbeat"></div>
+                        <h3 class="text-2xl font-bold mb-3">30+ Animations</h3>
+                        <p class="text-gray-600 mb-4">
+                            Fade, slide, zoom, shake, wiggle, flip, heartbeat, and more. All with customizable timing.
+                        </p>
+                        <div class="flex gap-2">
+                            <span class="animate-wiggle inline-block">🎨</span>
+                            <span class="animate-bounce inline-block delay-100">🚀</span>
+                            <span class="animate-pulse inline-block delay-200">✨</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gradient Card -->
+                <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl shadow-lg p-6 text-white transform hover:scale-105 transition-transform duration-300">
+                    <div class="w-20 h-20 bg-gradient-conic from-yellow-400 via-red-500 to-pink-600 rounded-full mb-6 animate-spin"></div>
+                    <h3 class="text-2xl font-bold mb-3">Advanced Gradients</h3>
+                    <p class="text-white/90 mb-4">
+                        Linear, radial, conic, and mesh gradients. Create stunning backgrounds with ease.
+                    </p>
+                    <div class="h-16 bg-aurora rounded-lg"></div>
+                </div>
+
+                <!-- 3D Transform Card -->
+                <div class="relative h-64 perspective-lg">
+                    <div class="absolute inset-0 bg-white rounded-2xl shadow-lg p-6 transform hover:rotate-y-180 transition-transform duration-700 transform-3d cursor-pointer">
+                        <div class="backface-hidden">
+                            <div class="w-20 h-20 bg-gradient-to-tr from-indigo-400 to-blue-600 rounded-lg mb-6 transform rotate-45"></div>
+                            <h3 class="text-2xl font-bold mb-3">3D Transforms</h3>
+                            <p class="text-gray-600">
+                                Hover to flip! Full 3D support with perspective and backface control.
+                            </p>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-6 transform rotate-y-180 backface-hidden text-white">
+                            <h3 class="text-2xl font-bold mb-3">The Future of CSS</h3>
+                            <p>
+                                Create immersive 3D experiences with simple utility classes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glassmorphism Card -->
+                <div class="backdrop-blur-xl bg-white/20 rounded-2xl p-6 border border-white/30 shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full mb-6 blur-sm"></div>
+                    <h3 class="text-2xl font-bold mb-3">Glassmorphism</h3>
+                    <p class="text-gray-700">
+                        Beautiful glass effects with backdrop filters and transparency.
+                    </p>
+                </div>
+
+                <!-- Clip Path Card -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-600 clip-star mb-6"></div>
+                    <h3 class="text-2xl font-bold mb-3">Clip Paths</h3>
+                    <p class="text-gray-600">
+                        15+ pre-defined shapes: circles, triangles, stars, arrows, and more.
+                    </p>
+                    <div class="flex gap-2 mt-4">
+                        <div class="w-12 h-12 bg-purple-500 clip-triangle"></div>
+                        <div class="w-12 h-12 bg-pink-500 clip-hexagon"></div>
+                        <div class="w-12 h-12 bg-indigo-500 clip-circle"></div>
+                    </div>
+                </div>
+
+                <!-- Modern CSS Card -->
+                <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-lg p-6 text-white">
+                    <div class="w-20 h-20 bg-white/30 backdrop-blur-md rounded-full mb-6 flex items-center justify-center text-3xl">
+                        🎯
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Container Queries</h3>
+                    <p class="text-white/90">
+                        Component-level responsive design with container query support.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Examples -->
+    <section class="py-20 px-4 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Interactive Examples</h2>
+            
+            <!-- Animation Showcase -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center">Hover Animations</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button class="bg-purple-500 text-white py-3 px-6 rounded-lg hover:animate-shake">
+                        Shake
+                    </button>
+                    <button class="bg-indigo-500 text-white py-3 px-6 rounded-lg hover:animate-wiggle">
+                        Wiggle
+                    </button>
+                    <button class="bg-pink-500 text-white py-3 px-6 rounded-lg hover:animate-pulse">
+                        Pulse
+                    </button>
+                    <button class="bg-teal-500 text-white py-3 px-6 rounded-lg hover:animate-bounce">
+                        Bounce
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gradient Showcase -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center">Gradient Types</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="h-32 bg-gradient-to-br from-red-400 via-pink-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-semibold">
+                        Linear Gradient
+                    </div>
+                    <div class="h-32 bg-gradient-radial from-yellow-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-semibold">
+                        Radial Gradient
+                    </div>
+                    <div class="h-32 bg-gradient-conic from-green-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-semibold">
+                        Conic Gradient
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blend Modes -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-center">Mix Blend Modes</h3>
+                <div class="relative h-64 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <h4 class="text-6xl font-black text-white mix-blend-overlay">WINDFLOW</h4>
+                    </div>
+                    <div class="absolute top-4 left-4 w-32 h-32 bg-yellow-400 rounded-full mix-blend-multiply"></div>
+                    <div class="absolute bottom-4 right-4 w-32 h-32 bg-cyan-400 rounded-full mix-blend-screen"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Example -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Simple to Use</h2>
+            
+            <div class="bg-gray-900 rounded-xl p-8 shadow-2xl">
+                <pre class="text-gray-300 overflow-x-auto"><code>&lt;!-- 3D Card Flip --&gt;
+&lt;div class="perspective-lg"&gt;
+  &lt;div class="transform hover:rotate-y-180 transition-transform duration-700 transform-3d"&gt;
+    &lt;div class="backface-hidden"&gt;Front&lt;/div&gt;
+    &lt;div class="backface-hidden rotate-y-180"&gt;Back&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Glassmorphism Card --&gt;
+&lt;div class="backdrop-blur-lg bg-white/20 border border-white/30 rounded-xl"&gt;
+  Glass Effect
+&lt;/div&gt;
+
+&lt;!-- Advanced Animation --&gt;
+&lt;button class="animate-heartbeat hover:animate-shake duration-500"&gt;
+  Interactive Button
+&lt;/button&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-purple-600 to-indigo-700">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Upgrade from Tailwind?</h2>
+            <p class="text-xl text-white/90 mb-8">
+                Get all the features you love from Tailwind, plus powerful enhancements that make modern web design a breeze.
+            </p>
+            <div class="flex gap-4 justify-center">
+                <button class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold 
+                             hover:scale-105 transform transition-all duration-300 shadow-xl">
+                    npm install windflow
+                </button>
+                <button class="bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold 
+                             hover:bg-purple-800 transition-colors duration-300 border border-purple-500">
+                    View on GitHub
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
