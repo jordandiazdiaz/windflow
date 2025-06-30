@@ -379,4 +379,8 @@ module.exports = {
     },
   },
   plugins: [],
+  output: {
+    path: 'dist/windflow.css',
+    minify: false
+  }
 }
