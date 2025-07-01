@@ -222,6 +222,37 @@
             --tw-gradient-to: #0f172a !important;
         }
         
+        /* Fix for black spots caused by pseudo-elements */
+        .text-glitch::before,
+        .text-glitch::after {
+            display: none !important;
+        }
+        
+        /* Prevent any pseudo-element issues */
+        *::before,
+        *::after {
+            background: transparent !important;
+        }
+        
+        /* Fix for any shadow issues */
+        .theme-dark *[class*="shadow"] {
+            box-shadow: none !important;
+        }
+        
+        /* Override any problematic z-index issues */
+        .theme-dark * {
+            position: relative;
+            z-index: auto;
+        }
+        
+        .theme-dark .demo-card,
+        .theme-dark .feature-card,
+        .theme-dark .code-example {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+            box-shadow: none !important;
+        }
+        
         @media (max-width: 768px) {
             .feature-grid {
                 grid-template-columns: 1fr;

@@ -146,6 +146,33 @@
         .text-yellow-400 {
             color: #fbbf24 !important;
         }
+        
+        /* Fix for black spots caused by pseudo-elements */
+        .text-glitch::before,
+        .text-glitch::after {
+            display: none !important;
+        }
+        
+        /* Prevent any pseudo-element issues */
+        *::before,
+        *::after {
+            background: transparent !important;
+        }
+        
+        /* Fix for any shadow issues */
+        *[class*="shadow"] {
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.2) !important;
+        }
+        
+        /* Override any problematic z-index issues */
+        * {
+            z-index: auto;
+        }
+        
+        .example-card {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
