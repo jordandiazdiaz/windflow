@@ -180,6 +180,18 @@
             background: #1e293b !important;
         }
         
+        /* Fix theme background classes that appear black */
+        .bg-theme-background,
+        *[class*="bg-theme-background"] {
+            background: #1e293b !important;
+        }
+        
+        /* Ensure all navigation and card backgrounds are consistent */
+        a[class*="bg-theme"],
+        div[class*="bg-theme"] {
+            background: #1e293b !important;
+        }
+        
         /* Fix any div or element that might have black backgrounds */
         div[style*="background: black"],
         div[style*="background-color: black"],

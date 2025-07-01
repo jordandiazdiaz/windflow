@@ -167,7 +167,7 @@
         
         .theme-dark .bg-theme-background,
         .bg-theme-background {
-            background: #0f172a !important;
+            background: #1e293b !important;
         }
         
         .theme-dark .text-theme-text,
@@ -259,6 +259,18 @@
             background: #1e293b !important;
         }
         
+        /* Fix theme background classes that appear black */
+        .bg-theme-background,
+        *[class*="bg-theme-background"] {
+            background: #1e293b !important;
+        }
+        
+        /* Ensure all navigation and card backgrounds are consistent */
+        a[class*="bg-theme"],
+        div[class*="bg-theme"] {
+            background: #1e293b !important;
+        }
+        
         /* Fix any div or element that might have black backgrounds */
         div[style*="background: black"],
         div[style*="background-color: black"],
@@ -283,7 +295,7 @@
         }
     </style>
 </head>
-<body class="theme-dark bg-theme-background text-theme-text">
+<body class="theme-dark bg-gray-900 text-theme-text">
     <!-- Navigation -->
     <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-theme-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
