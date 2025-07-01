@@ -159,6 +159,69 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
+        /* Theme-specific class improvements */
+        .theme-dark .bg-theme-surface,
+        .bg-theme-surface {
+            background: #1e293b !important;
+        }
+        
+        .theme-dark .bg-theme-background,
+        .bg-theme-background {
+            background: #0f172a !important;
+        }
+        
+        .theme-dark .text-theme-text,
+        .text-theme-text {
+            color: #f1f5f9 !important;
+        }
+        
+        .theme-dark .text-theme-text-muted,
+        .text-theme-text-muted {
+            color: #94a3b8 !important;
+        }
+        
+        .theme-dark .text-theme-primary,
+        .text-theme-primary {
+            color: #60a5fa !important;
+        }
+        
+        .theme-dark .text-theme-secondary,
+        .text-theme-secondary {
+            color: #a78bfa !important;
+        }
+        
+        .theme-dark .border-theme-border,
+        .border-theme-border {
+            border-color: #334155 !important;
+        }
+        
+        .theme-dark .hover\\:bg-theme-surface-light:hover,
+        .hover\\:bg-theme-surface-light:hover {
+            background: #334155 !important;
+        }
+        
+        .theme-dark .hover\\:text-theme-primary:hover,
+        .hover\\:text-theme-primary:hover {
+            color: #93c5fd !important;
+        }
+        
+        /* Additional theme classes */
+        .theme-dark .bg-theme-surface-light {
+            background: #334155 !important;
+        }
+        
+        .theme-dark .from-theme-background {
+            --tw-gradient-from: #0f172a !important;
+        }
+        
+        .theme-dark .via-theme-surface {
+            --tw-gradient-via: #1e293b !important;
+        }
+        
+        .theme-dark .to-theme-background {
+            --tw-gradient-to: #0f172a !important;
+        }
+        
         @media (max-width: 768px) {
             .feature-grid {
                 grid-template-columns: 1fr;
@@ -516,21 +579,25 @@
                 <div class="bg-theme-surface border border-theme-border rounded-xl p-8">
                     <h3 class="text-2xl font-bold mb-4 text-theme-primary">💡 Examples</h3>
                     <div class="space-y-3">
-                        <a href="examples/demo.html" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
-                            <div class="font-medium">Interactive Demo</div>
+                        <a href="../examples/demo.html" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
+                            <div class="font-medium text-theme-text">Interactive Demo</div>
                             <div class="text-sm text-theme-text-muted">See all features in action</div>
                         </a>
-                        <a href="examples/themes-demo.html" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
-                            <div class="font-medium">Theme Showcase</div>
+                        <a href="../examples/themes-demo.html" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
+                            <div class="font-medium text-theme-text">Theme Showcase</div>
                             <div class="text-sm text-theme-text-muted">Explore all 8 themes</div>
                         </a>
-                        <a href="#" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
-                            <div class="font-medium">Component Library</div>
-                            <div class="text-sm text-theme-text-muted">Pre-built components</div>
+                        <a href="../examples/playground.html" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
+                            <div class="font-medium text-theme-text">Interactive Playground</div>
+                            <div class="text-sm text-theme-text-muted">Test features in real-time</div>
                         </a>
-                        <a href="#" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
-                            <div class="font-medium">CodePen Collection</div>
-                            <div class="text-sm text-theme-text-muted">Interactive examples</div>
+                        <a href="../examples/advanced-components.html" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
+                            <div class="font-medium text-theme-text">Advanced Components</div>
+                            <div class="text-sm text-theme-text-muted">Complex UI components</div>
+                        </a>
+                        <a href="../examples/real-world-examples.html" class="block p-3 bg-theme-background rounded-lg hover:bg-theme-surface-light transition-colors">
+                            <div class="font-medium text-theme-text">Real World Examples</div>
+                            <div class="text-sm text-theme-text-muted">Complete page layouts</div>
                         </a>
                     </div>
                 </div>
@@ -547,30 +614,30 @@
                     <p class="text-theme-text-muted">Modern utility-first CSS framework with superpowers.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Documentation</h4>
+                    <h4 class="font-semibold mb-4 text-theme-text">Documentation</h4>
                     <div class="space-y-2">
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Getting Started</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Class Reference</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Examples</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Migration Guide</a>
+                        <a href="#docs" class="block text-theme-text-muted hover:text-theme-primary">Getting Started</a>
+                        <a href="#features" class="block text-theme-text-muted hover:text-theme-primary">Class Reference</a>
+                        <a href="../examples/" class="block text-theme-text-muted hover:text-theme-primary">Examples</a>
+                        <a href="../docs/migration-from-tailwind.md" class="block text-theme-text-muted hover:text-theme-primary">Migration Guide</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Community</h4>
+                    <h4 class="font-semibold mb-4 text-theme-text">Community</h4>
                     <div class="space-y-2">
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">GitHub</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Discord</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Twitter</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Blog</a>
+                        <a href="https://github.com/jordandiazdiaz/windflow" class="block text-theme-text-muted hover:text-theme-primary">GitHub</a>
+                        <a href="../benchmarks/" class="block text-theme-text-muted hover:text-theme-primary">Benchmarks</a>
+                        <a href="../vscode-extension/" class="block text-theme-text-muted hover:text-theme-primary">VS Code Extension</a>
+                        <a href="https://npmjs.com/package/windflow-css" class="block text-theme-text-muted hover:text-theme-primary">NPM Package</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <h4 class="font-semibold mb-4 text-theme-text">Resources</h4>
                     <div class="space-y-2">
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">VS Code Extension</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Playground</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Changelog</a>
-                        <a href="#" class="block text-theme-text-muted hover:text-theme-primary">Roadmap</a>
+                        <a href="../vscode-extension/" class="block text-theme-text-muted hover:text-theme-primary">VS Code Extension</a>
+                        <a href="../examples/playground.html" class="block text-theme-text-muted hover:text-theme-primary">Playground</a>
+                        <a href="../CHANGELOG.md" class="block text-theme-text-muted hover:text-theme-primary">Changelog</a>
+                        <a href="../scripts/migrate-from-tailwind.js" class="block text-theme-text-muted hover:text-theme-primary">Migration Tool</a>
                     </div>
                 </div>
             </div>
