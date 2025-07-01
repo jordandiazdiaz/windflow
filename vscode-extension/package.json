@@ -3,7 +3,7 @@
   "displayName": "WindFlow IntelliSense",
   "description": "Intelligent WindFlow CSS class suggestions and documentation",
   "version": "1.0.0",
-  "publisher": "windflow",
+  "publisher": "JordanDiaz",
   "engines": {
     "vscode": "^1.74.0"
   },
