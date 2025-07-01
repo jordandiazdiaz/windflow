@@ -1,112 +1,96 @@
-import * as vscode from 'vscode';
-import { WindFlowCompletionProvider } from './providers/completionProvider';
-import { WindFlowHoverProvider } from './providers/hoverProvider';
-
-export function activate(context: vscode.ExtensionContext) {
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deactivate = exports.activate = void 0;
+const vscode = __importStar(require("vscode"));
+const completionProvider_1 = require("./providers/completionProvider");
+const hoverProvider_1 = require("./providers/hoverProvider");
+function activate(context) {
     console.log('WindFlow IntelliSense is now active!');
-
     const config = vscode.workspace.getConfiguration('windflow');
-    
     if (!config.get('enable')) {
         return;
     }
-
     // Initialize providers
-    const completionProvider = new WindFlowCompletionProvider();
-    const hoverProvider = new WindFlowHoverProvider();
-
+    const completionProvider = new completionProvider_1.WindFlowCompletionProvider();
+    const hoverProvider = new hoverProvider_1.WindFlowHoverProvider();
     // Supported languages
     const languages = [
-        'html', 'javascript', 'typescript', 
-        'javascriptreact', 'typescriptreact', 
+        'html', 'javascript', 'typescript',
+        'javascriptreact', 'typescriptreact',
         'vue', 'svelte', 'php'
     ];
-
     // Register completion provider
-    context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(
-            languages,
-            completionProvider,
-            ' ', '"', "'", '`', '='
-        )
-    );
-
+    context.subscriptions.push(vscode.languages.registerCompletionItemProvider(languages, completionProvider, ' ', '"', "'", '`', '='));
     // Register hover provider
-    context.subscriptions.push(
-        vscode.languages.registerHoverProvider(languages, hoverProvider)
-    );
-
+    context.subscriptions.push(vscode.languages.registerHoverProvider(languages, hoverProvider));
     // Register commands
-    context.subscriptions.push(
-        vscode.commands.registerCommand('windflow.generateCSS', async () => {
-            await generateCSS();
-        })
-    );
-
-    context.subscriptions.push(
-        vscode.commands.registerCommand('windflow.previewTheme', async () => {
-            await previewTheme();
-        })
-    );
-
-    context.subscriptions.push(
-        vscode.commands.registerCommand('windflow.showDocs', async () => {
-            await showDocumentation();
-        })
-    );
-
-    context.subscriptions.push(
-        vscode.commands.registerCommand('windflow.extractClasses', async () => {
-            vscode.window.showInformationMessage('Extract Classes feature coming soon!');
-        })
-    );
-
+    context.subscriptions.push(vscode.commands.registerCommand('windflow.generateCSS', async () => {
+        await generateCSS();
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('windflow.previewTheme', async () => {
+        await previewTheme();
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('windflow.showDocs', async () => {
+        await showDocumentation();
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('windflow.extractClasses', async () => {
+        vscode.window.showInformationMessage('Extract Classes feature coming soon!');
+    }));
     // Status bar
-    const statusBarItem = vscode.window.createStatusBarItem(
-        vscode.StatusBarAlignment.Right, 
-        100
-    );
+    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
     statusBarItem.text = "$(symbol-color) WindFlow";
     statusBarItem.tooltip = "WindFlow IntelliSense Active";
     statusBarItem.command = 'windflow.showDocs';
     statusBarItem.show();
     context.subscriptions.push(statusBarItem);
 }
-
+exports.activate = activate;
 async function generateCSS() {
     const terminal = vscode.window.activeTerminal || vscode.window.createTerminal('WindFlow');
     terminal.show();
     terminal.sendText('windflow build');
-    
     vscode.window.showInformationMessage('Generating WindFlow CSS...');
 }
-
 async function previewTheme() {
     const themes = [
-        'dark', 'cyberpunk', 'glassmorphism', 'retro', 
+        'dark', 'cyberpunk', 'glassmorphism', 'retro',
         'nature', 'ocean', 'monochrome', 'sunset'
     ];
-    
     const selectedTheme = await vscode.window.showQuickPick(themes, {
         placeHolder: 'Select a theme to preview'
     });
-    
     if (selectedTheme) {
         // Create preview HTML
-        const panel = vscode.window.createWebviewPanel(
-            'windflowThemePreview',
-            `WindFlow Theme: ${selectedTheme}`,
-            vscode.ViewColumn.Two,
-            {
-                enableScripts: true
-            }
-        );
-        
+        const panel = vscode.window.createWebviewPanel('windflowThemePreview', `WindFlow Theme: ${selectedTheme}`, vscode.ViewColumn.Two, {
+            enableScripts: true
+        });
         panel.webview.html = getThemePreviewHTML(selectedTheme);
     }
 }
-
-function getThemePreviewHTML(theme: string): string {
+function getThemePreviewHTML(theme) {
     return `
     <!DOCTYPE html>
     <html>
@@ -202,76 +186,75 @@ function getThemePreviewHTML(theme: string): string {
     </body>
     </html>`;
 }
-
-function getThemeColors(theme: string) {
-    const themes: Record<string, any> = {
-        dark: { 
-            primary: '#6366f1', 
-            secondary: '#8b5cf6', 
-            accent: '#06b6d4', 
+function getThemeColors(theme) {
+    const themes = {
+        dark: {
+            primary: '#6366f1',
+            secondary: '#8b5cf6',
+            accent: '#06b6d4',
             background: '#0f172a',
             surface: '#1e293b',
             text: '#f1f5f9',
             border: '#334155'
         },
-        cyberpunk: { 
-            primary: '#ff0080', 
-            secondary: '#00ffff', 
-            accent: '#ffff00', 
+        cyberpunk: {
+            primary: '#ff0080',
+            secondary: '#00ffff',
+            accent: '#ffff00',
             background: '#0a0a0a',
             surface: '#1a1a1a',
             text: '#ffffff',
             border: '#ff0080'
         },
-        glassmorphism: { 
-            primary: '#6366f1', 
-            secondary: '#8b5cf6', 
-            accent: '#06b6d4', 
+        glassmorphism: {
+            primary: '#6366f1',
+            secondary: '#8b5cf6',
+            accent: '#06b6d4',
             background: 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))',
             surface: 'rgba(255,255,255,0.1)',
             text: '#1f2937',
             border: 'rgba(255,255,255,0.2)'
         },
-        retro: { 
-            primary: '#ff6b9d', 
-            secondary: '#feca57', 
-            accent: '#48dbfb', 
+        retro: {
+            primary: '#ff6b9d',
+            secondary: '#feca57',
+            accent: '#48dbfb',
             background: '#2c2c54',
             surface: '#40407a',
             text: '#ffffff',
             border: '#706fd3'
         },
-        nature: { 
-            primary: '#22c55e', 
-            secondary: '#84cc16', 
-            accent: '#eab308', 
+        nature: {
+            primary: '#22c55e',
+            secondary: '#84cc16',
+            accent: '#eab308',
             background: '#f0fdf4',
             surface: '#ffffff',
             text: '#1f2937',
             border: '#dcfce7'
         },
-        ocean: { 
-            primary: '#0ea5e9', 
-            secondary: '#0284c7', 
-            accent: '#06b6d4', 
+        ocean: {
+            primary: '#0ea5e9',
+            secondary: '#0284c7',
+            accent: '#06b6d4',
             background: '#f0f9ff',
             surface: '#ffffff',
             text: '#1f2937',
             border: '#e0f2fe'
         },
-        monochrome: { 
-            primary: '#000000', 
-            secondary: '#404040', 
-            accent: '#808080', 
+        monochrome: {
+            primary: '#000000',
+            secondary: '#404040',
+            accent: '#808080',
             background: '#ffffff',
             surface: '#f8f9fa',
             text: '#000000',
             border: '#e5e7eb'
         },
-        sunset: { 
-            primary: '#f97316', 
-            secondary: '#ea580c', 
-            accent: '#fbbf24', 
+        sunset: {
+            primary: '#f97316',
+            secondary: '#ea580c',
+            accent: '#fbbf24',
             background: '#fffbeb',
             surface: '#ffffff',
             text: '#1f2937',
@@ -280,15 +263,8 @@ function getThemeColors(theme: string) {
     };
     return themes[theme] || themes.dark;
 }
-
 async function showDocumentation() {
-    const panel = vscode.window.createWebviewPanel(
-        'windflowDocs',
-        'WindFlow Documentation',
-        vscode.ViewColumn.Two,
-        { enableScripts: true }
-    );
-    
+    const panel = vscode.window.createWebviewPanel('windflowDocs', 'WindFlow Documentation', vscode.ViewColumn.Two, { enableScripts: true });
     panel.webview.html = `
     <!DOCTYPE html>
     <html>
@@ -401,5 +377,6 @@ async function showDocumentation() {
     </body>
     </html>`;
 }
-
-export function deactivate() {}
+function deactivate() { }
+exports.deactivate = deactivate;
+//# sourceMappingURL=extension.js.map
