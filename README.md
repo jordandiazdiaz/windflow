@@ -316,7 +316,7 @@ MIT License - feel free to use WindFlow in your projects!
 - [Migration from Tailwind](./docs/migration-from-tailwind.md) - Step-by-step migration guide
 - [Examples](./examples/) - Interactive demos and playground
 - [Performance Benchmarks](./benchmarks/) - Detailed performance analysis
-- [VS Code Extension](./vscode-extension/) - IntelliSense and snippets
+- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=JordanDiaz.windflow-intellisense) - IntelliSense and snippets
 - [GitHub Repository](https://github.com/jordandiazdiaz/windflow)
 
 ---
