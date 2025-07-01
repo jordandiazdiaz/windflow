@@ -1,6 +1,6 @@
 {
   "name": "windflow-css",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A modern CSS framework inspired by Tailwind with enhanced features",
   "main": "dist/windflow.css",
   "scripts": {
