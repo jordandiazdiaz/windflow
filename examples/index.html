@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow CSS - Examples & Demos</title>
+    <link rel="stylesheet" href="../dist/windflow.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .example-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .example-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .preview-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-gray-800 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2">WindFlow CSS Examples</h1>
+                    <p class="text-gray-300 text-lg">Interactive demos and real-world examples</p>
+                </div>
+                <a href="../" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    ← Back to Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Examples Grid -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Playground -->
+            <div class="example-card bg-gray-800 rounded-xl overflow-hidden hover-lift">
+                <div class="preview-image gradient-aurora">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🎮</div>
+                        <div>Interactive Playground</div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Interactive Playground</h3>
+                    <p class="text-gray-400 mb-4">Test all WindFlow features in real-time. Play with animations, themes, and effects.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">Interactive</span>
+                        <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">Live Editor</span>
+                    </div>
+                    <a href="playground.html" class="w-full bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium transition-colors inline-block text-center">
+                        Open Playground →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Themes Demo -->
+            <div class="example-card bg-gray-800 rounded-xl overflow-hidden hover-lift">
+                <div class="preview-image gradient-cyberpunk">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🎨</div>
+                        <div>8 Beautiful Themes</div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Themes Showcase</h3>
+                    <p class="text-gray-400 mb-4">Explore all 8 built-in themes with live switching and customization options.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-sm">8 Themes</span>
+                        <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">Live Switch</span>
+                    </div>
+                    <a href="themes-demo.html" class="w-full bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg font-medium transition-colors inline-block text-center">
+                        View Themes →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Advanced Components -->
+            <div class="example-card bg-gray-800 rounded-xl overflow-hidden hover-lift">
+                <div class="preview-image gradient-ocean">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🧩</div>
+                        <div>Advanced Components</div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Advanced Components</h3>
+                    <p class="text-gray-400 mb-4">Complex UI components built with WindFlow: cards, modals, navigation, and more.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-3 py-1 bg-indigo-600/20 text-indigo-400 rounded-full text-sm">Components</span>
+                        <span class="px-3 py-1 bg-teal-600/20 text-teal-400 rounded-full text-sm">Production Ready</span>
+                    </div>
+                    <a href="advanced-components.html" class="w-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg font-medium transition-colors inline-block text-center">
+                        View Components →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Real World Examples -->
+            <div class="example-card bg-gray-800 rounded-xl overflow-hidden hover-lift">
+                <div class="preview-image gradient-sunset">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🌍</div>
+                        <div>Real World Examples</div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Real World Examples</h3>
+                    <p class="text-gray-400 mb-4">Complete page layouts and designs inspired by popular websites and applications.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-3 py-1 bg-orange-600/20 text-orange-400 rounded-full text-sm">Full Pages</span>
+                        <span class="px-3 py-1 bg-red-600/20 text-red-400 rounded-full text-sm">Responsive</span>
+                    </div>
+                    <a href="real-world-examples.html" class="w-full bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded-lg font-medium transition-colors inline-block text-center">
+                        View Examples →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feature Demo -->
+            <div class="example-card bg-gray-800 rounded-xl overflow-hidden hover-lift">
+                <div class="preview-image gradient-forest">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">✨</div>
+                        <div>Feature Showcase</div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Feature Showcase</h3>
+                    <p class="text-gray-400 mb-4">Comprehensive demo of all WindFlow features: animations, effects, and utilities.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">50+ Features</span>
+                        <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">Complete Demo</span>
+                    </div>
+                    <a href="demo.html" class="w-full bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-medium transition-colors inline-block text-center">
+                        View Demo →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Performance Benchmarks -->
+            <div class="example-card bg-gray-800 rounded-xl overflow-hidden hover-lift">
+                <div class="preview-image gradient-warm">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">📊</div>
+                        <div>Performance Tests</div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3">Performance Benchmarks</h3>
+                    <p class="text-gray-400 mb-4">Interactive performance testing suite with real-time metrics and comparisons.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-3 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-sm">92/100 Score</span>
+                        <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">Real-time</span>
+                    </div>
+                    <a href="../benchmarks/" class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg font-medium transition-colors inline-block text-center">
+                        Run Benchmarks →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Quick Links Section -->
+        <section class="mt-16 bg-gray-800 rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Quick Links</h2>
+            <div class="grid md:grid-cols-4 gap-4">
+                <a href="../docs/migration-from-tailwind.md" class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg text-center transition-colors">
+                    <div class="text-2xl mb-2">🔄</div>
+                    <div class="font-medium">Migration Guide</div>
+                </a>
+                <a href="../vscode-extension/" class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg text-center transition-colors">
+                    <div class="text-2xl mb-2">🔧</div>
+                    <div class="font-medium">VS Code Extension</div>
+                </a>
+                <a href="../docs/" class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg text-center transition-colors">
+                    <div class="text-2xl mb-2">📚</div>
+                    <div class="font-medium">Documentation</div>
+                </a>
+                <a href="https://github.com/jordandiazdiaz/windflow" class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg text-center transition-colors">
+                    <div class="text-2xl mb-2">🐙</div>
+                    <div class="font-medium">GitHub Repo</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Getting Started -->
+        <section class="mt-16 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Start Building?</h2>
+            <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                WindFlow CSS makes it easy to create beautiful, performant websites with advanced animations and modern effects.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="../#quickstart" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition-colors hover-scale">
+                    🚀 Quick Start Guide
+                </a>
+                <a href="../docs/" class="border border-gray-600 hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-colors">
+                    📖 Read Documentation
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 py-8 mt-16">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>Made with ❤️ using WindFlow CSS</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth hover animations
+        document.querySelectorAll('.example-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
