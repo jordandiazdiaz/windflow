@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindFlow CSS - Modern CSS Framework</title>
+    <meta name="description" content="WindFlow CSS: Modern utility-first CSS framework with 50+ animations, 8 themes, and advanced effects. Easy migration from Tailwind CSS.">
+    <link rel="stylesheet" href="dist/windflow.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .performance-metric {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .comparison-table td, .comparison-table th {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .badge-success { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+        .badge-warning { background: rgba(251, 146, 60, 0.1); color: #fb923c; }
+        .badge-error { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-lg z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold">WindFlow CSS</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#features" class="hover:text-blue-400 transition-colors">Features</a>
+                    <a href="#performance" class="hover:text-blue-400 transition-colors">Performance</a>
+                    <a href="#docs" class="hover:text-blue-400 transition-colors">Docs</a>
+                    <a href="#examples" class="hover:text-blue-400 transition-colors">Examples</a>
+                    <a href="https://github.com/jordandiazdiaz/windflow" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 animate-gradient bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                    WindFlow CSS
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+                    Modern utility-first CSS framework with <span class="text-blue-300 font-semibold">50+ animations</span>, 
+                    <span class="text-purple-300 font-semibold">8 themes</span>, and advanced effects. 
+                    Easy migration from Tailwind CSS.
+                </p>
+                
+                <!-- Performance Badges -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="performance-metric rounded-full px-6 py-3">
+                        <span class="text-sm text-gray-300">Performance Score</span>
+                        <div class="text-2xl font-bold text-green-400">92/100</div>
+                    </div>
+                    <div class="performance-metric rounded-full px-6 py-3">
+                        <span class="text-sm text-gray-300">Load Time</span>
+                        <div class="text-2xl font-bold text-blue-400">145ms</div>
+                    </div>
+                    <div class="performance-metric rounded-full px-6 py-3">
+                        <span class="text-sm text-gray-300">Animations</span>
+                        <div class="text-2xl font-bold text-purple-400">50+</div>
+                    </div>
+                    <div class="performance-metric rounded-full px-6 py-3">
+                        <span class="text-sm text-gray-300">Themes</span>
+                        <div class="text-2xl font-bold text-indigo-400">8</div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#quickstart" class="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all hover:scale-105 hover-lift">
+                        🚀 Quick Start
+                    </a>
+                    <a href="./examples/" class="border border-white/30 px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all hover:scale-105">
+                        ✨ View Examples
+                    </a>
+                    <a href="./benchmarks/" class="border border-white/30 px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all hover:scale-105">
+                        📊 Benchmarks
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why WindFlow Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">🎯 Why WindFlow?</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Everything you love about Tailwind CSS, plus the superpowers you've been asking for
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-900 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-4">315.9 KB of Power</h3>
+                    <p class="text-gray-400">Pure CSS goodness with 50+ animations, 8 themes, and advanced effects</p>
+                </div>
+                <div class="feature-card bg-gray-900 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="text-xl font-semibold mb-4">No Build Required</h3>
+                    <p class="text-gray-400">Just include and use. No complex build process or configuration needed</p>
+                </div>
+                <div class="feature-card bg-gray-900 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-semibold mb-4">100% Tailwind Compatible</h3>
+                    <p class="text-gray-400">Easy migration with automated tools and comprehensive guides</p>
+                </div>
+                <div class="feature-card bg-gray-900 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">🏆</div>
+                    <h3 class="text-xl font-semibold mb-4">Performance Focused</h3>
+                    <p class="text-gray-400">92/100 benchmark score with optimized animations and efficient CSS</p>
+                </div>
+                <div class="feature-card bg-gray-900 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">👨‍💻</div>
+                    <h3 class="text-xl font-semibold mb-4">Developer Friendly</h3>
+                    <p class="text-gray-400">VS Code extension, comprehensive docs, and interactive examples</p>
+                </div>
+                <div class="feature-card bg-gray-900 p-8 rounded-xl">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-xl font-semibold mb-4">Modern Effects</h3>
+                    <p class="text-gray-400">Glassmorphism, 3D transforms, advanced gradients, and particle effects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">🏆 Performance Metrics</h2>
+                <p class="text-xl text-gray-300">WindFlow achieves a 92/100 performance score</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="performance-metric p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">145ms</div>
+                    <div class="text-gray-300">Average Load Time</div>
+                </div>
+                <div class="performance-metric p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-green-400 mb-2">58 FPS</div>
+                    <div class="text-gray-300">Animation Performance</div>
+                </div>
+                <div class="performance-metric p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-purple-400 mb-2">18.5 MB</div>
+                    <div class="text-gray-300">Memory Footprint</div>
+                </div>
+                <div class="performance-metric p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-indigo-400 mb-2">0.02</div>
+                    <div class="text-gray-300">CLS Score</div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden">
+                <h3 class="text-2xl font-bold p-6 border-b border-gray-700">📊 Framework Comparison</h3>
+                <div class="overflow-x-auto">
+                    <table class="comparison-table w-full">
+                        <thead>
+                            <tr class="bg-gray-700">
+                                <th class="text-left">Feature</th>
+                                <th class="text-center">WindFlow</th>
+                                <th class="text-center">Tailwind</th>
+                                <th class="text-center">Bootstrap</th>
+                                <th class="text-center">Bulma</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Bundle Size</td>
+                                <td class="text-center">315.9 KB</td>
+                                <td class="text-center">42.7 KB</td>
+                                <td class="text-center">192.4 KB</td>
+                                <td class="text-center">234.8 KB</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Animations</td>
+                                <td class="text-center"><span class="badge badge-success">50+</span></td>
+                                <td class="text-center">4</td>
+                                <td class="text-center">12</td>
+                                <td class="text-center">0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Themes</td>
+                                <td class="text-center"><span class="badge badge-success">8 built-in</span></td>
+                                <td class="text-center">Manual</td>
+                                <td class="text-center">1</td>
+                                <td class="text-center">Manual</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">3D Support</td>
+                                <td class="text-center"><span class="badge badge-success">✅ Full</span></td>
+                                <td class="text-center">❌</td>
+                                <td class="text-center">❌</td>
+                                <td class="text-center">❌</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Performance Score</td>
+                                <td class="text-center"><span class="badge badge-success">92/100</span></td>
+                                <td class="text-center"><span class="badge badge-warning">85/100</span></td>
+                                <td class="text-center"><span class="badge badge-warning">78/100</span></td>
+                                <td class="text-center"><span class="badge badge-error">72/100</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quickstart" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">🚀 Quick Start</h2>
+                <p class="text-xl text-gray-300">Get started with WindFlow in minutes</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Installation</h3>
+                    <div class="code-block p-6 mb-6">
+                        <pre class="text-green-400"><code># Install WindFlow CSS
+npm install windflow-css
+
+# Or install globally for CLI
+npm install -g windflow-css
+
+# Initialize in your project
+windflow init
+
+# Build your CSS
+windflow build</code></pre>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-6">Migrating from Tailwind?</h3>
+                    <div class="code-block p-6 mb-6">
+                        <pre class="text-blue-400"><code># Run our automated migration tool
+node scripts/migrate-from-tailwind.js
+
+# Follow the step-by-step guide
+# All your classes will be automatically converted</code></pre>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Example Usage</h3>
+                    <div class="code-block p-6 mb-6">
+                        <pre class="text-purple-400"><code>&lt;!-- Enhanced animations --&gt;
+&lt;div class="animate-rubber-band hover:animate-glitch"&gt;
+  Amazing Animation
+&lt;/div&gt;
+
+&lt;!-- Glassmorphism effects --&gt;
+&lt;div class="glass-dark p-6 rounded-xl"&gt;
+  Glass Card
+&lt;/div&gt;
+
+&lt;!-- 3D transforms --&gt;
+&lt;div class="rotate-x-45 perspective-lg hover:rotate-y-180"&gt;
+  3D Card
+&lt;/div&gt;
+
+&lt;!-- Advanced gradients --&gt;
+&lt;div class="gradient-aurora animate-gradient"&gt;
+  Aurora Background
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">✨ Key Features</h2>
+                <p class="text-xl text-gray-300">Everything Tailwind has, plus the superpowers you need</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Animations -->
+                <div class="feature-card bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <span class="text-3xl mr-4">🎬</span>
+                        50+ Advanced Animations
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li>• <strong>Attention seekers:</strong> rubber-band, jello, swing, tada, wobble</li>
+                        <li>• <strong>Entrances:</strong> fade-in, slide-in-*, zoom-in, roll-in</li>
+                        <li>• <strong>Text effects:</strong> typewriter, blink, glow, neon</li>
+                        <li>• <strong>Modern effects:</strong> glitch, matrix, morphing, float</li>
+                        <li>• <strong>Loading animations:</strong> dots, bars, spinner, pulse-ring</li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <div class="w-16 h-16 bg-blue-500 rounded-lg animate-rubber-band"></div>
+                        <div class="w-16 h-16 bg-purple-500 rounded-lg animate-jello"></div>
+                        <div class="w-16 h-16 bg-green-500 rounded-lg animate-glitch"></div>
+                    </div>
+                </div>
+
+                <!-- Themes -->
+                <div class="feature-card bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <span class="text-3xl mr-4">🎨</span>
+                        8 Beautiful Themes
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li>• <strong>Dark mode:</strong> Professional dark interface</li>
+                        <li>• <strong>Cyberpunk:</strong> Neon colors and futuristic vibes</li>
+                        <li>• <strong>Glassmorphism:</strong> Transparent glass effects</li>
+                        <li>• <strong>Ocean:</strong> Cool blues and teals</li>
+                        <li>• <strong>Sunset:</strong> Warm oranges and purples</li>
+                    </ul>
+                    <div class="grid grid-cols-4 gap-2">
+                        <div class="h-12 bg-gradient-to-r from-gray-800 to-gray-600 rounded"></div>
+                        <div class="h-12 bg-gradient-to-r from-cyan-500 to-purple-600 rounded"></div>
+                        <div class="h-12 bg-gradient-to-r from-blue-400 via-transparent to-blue-600 rounded"></div>
+                        <div class="h-12 bg-gradient-to-r from-orange-400 to-purple-600 rounded"></div>
+                    </div>
+                </div>
+
+                <!-- 3D & Modern CSS -->
+                <div class="feature-card bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <span class="text-3xl mr-4">🎭</span>
+                        3D Transforms & Modern CSS
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li>• <strong>3D rotations:</strong> rotate-x-45, rotate-y-90</li>
+                        <li>• <strong>Perspective:</strong> perspective-lg, transform-3d</li>
+                        <li>• <strong>Glassmorphism:</strong> backdrop-blur, glass effects</li>
+                        <li>• <strong>Clip paths:</strong> Custom shapes and cutouts</li>
+                        <li>• <strong>Container queries:</strong> Responsive based on container</li>
+                    </ul>
+                    <div class="perspective-1000">
+                        <div class="w-24 h-24 bg-gradient-to-r from-pink-500 to-blue-500 rounded-lg rotate-x-12 rotate-y-12 hover:rotate-x-0 hover:rotate-y-0 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Developer Tools -->
+                <div class="feature-card bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <span class="text-3xl mr-4">🔧</span>
+                        Developer Tools
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li>• <strong>VS Code extension:</strong> Autocomplete and previews</li>
+                        <li>• <strong>Migration script:</strong> Automated Tailwind migration</li>
+                        <li>• <strong>Performance benchmarks:</strong> Real-time metrics</li>
+                        <li>• <strong>Interactive playground:</strong> Test features live</li>
+                        <li>• <strong>Comprehensive docs:</strong> Examples and guides</li>
+                    </ul>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-blue-600 p-2 rounded">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352z"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm">VS Code Extension</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Links -->
+    <section id="docs" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">📚 Documentation & Resources</h2>
+                <p class="text-xl text-gray-300">Everything you need to get started and master WindFlow</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="./docs/README.md" class="feature-card bg-gray-900 p-8 rounded-xl block hover:scale-105">
+                    <div class="text-4xl mb-4">📖</div>
+                    <h3 class="text-xl font-semibold mb-4">Complete Documentation</h3>
+                    <p class="text-gray-400">Full API reference, guides, and examples</p>
+                </a>
+                
+                <a href="./docs/migration-from-tailwind.md" class="feature-card bg-gray-900 p-8 rounded-xl block hover:scale-105">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-semibold mb-4">Migration Guide</h3>
+                    <p class="text-gray-400">Step-by-step guide to migrate from Tailwind CSS</p>
+                </a>
+                
+                <a href="./examples/" class="feature-card bg-gray-900 p-8 rounded-xl block hover:scale-105">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-semibold mb-4">Interactive Examples</h3>
+                    <p class="text-gray-400">Live demos and playground to test features</p>
+                </a>
+                
+                <a href="./benchmarks/" class="feature-card bg-gray-900 p-8 rounded-xl block hover:scale-105">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-4">Performance Benchmarks</h3>
+                    <p class="text-gray-400">Detailed performance analysis and comparisons</p>
+                </a>
+                
+                <a href="./vscode-extension/" class="feature-card bg-gray-900 p-8 rounded-xl block hover:scale-105">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="text-xl font-semibold mb-4">VS Code Extension</h3>
+                    <p class="text-gray-400">IntelliSense, snippets, and live previews</p>
+                </a>
+                
+                <a href="https://github.com/jordandiazdiaz/windflow" class="feature-card bg-gray-900 p-8 rounded-xl block hover:scale-105">
+                    <div class="text-4xl mb-4">🐙</div>
+                    <h3 class="text-xl font-semibold mb-4">GitHub Repository</h3>
+                    <p class="text-gray-400">Source code, issues, and contributions</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-700">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-6">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold">WindFlow CSS</span>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Made with ❤️ by developers, for developers. WindFlow - where Tailwind meets modern CSS.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/jordandiazdiaz/windflow" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                    <a href="./docs/" class="text-gray-400 hover:text-white transition-colors">Documentation</a>
+                    <a href="./examples/" class="text-gray-400 hover:text-white transition-colors">Examples</a>
+                    <a href="./benchmarks/" class="text-gray-400 hover:text-white transition-colors">Benchmarks</a>
+                </div>
+                <div class="mt-6 text-sm text-gray-500">
+                    <p>MIT License © 2024 WindFlow CSS</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
