@@ -7,33 +7,45 @@
     <link rel="stylesheet" href="../dist/windflow.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        .benchmark-card {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            transition: all 0.3s ease;
+        body {
+            background: #0f172a;
+            color: #f1f5f9;
         }
+        
+        .benchmark-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            color: #f1f5f9;
+        }
+        
         .benchmark-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            border-color: #64748b;
         }
+        
         .metric-value {
             font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
         .progress-bar {
             height: 8px;
-            background: var(--color-border);
+            background: #334155;
             border-radius: 4px;
             overflow: hidden;
         }
+        
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
             transition: width 1s ease;
         }
+        
         .test-status {
             display: inline-flex;
             align-items: center;
@@ -43,17 +55,127 @@
             font-size: 0.875rem;
             font-weight: 500;
         }
+        
         .status-running {
-            background: rgba(59, 130, 246, 0.1);
-            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
+        
         .status-completed {
-            background: rgba(34, 197, 94, 0.1);
-            color: #22c55e;
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
+        
         .status-failed {
-            background: rgba(239, 68, 68, 0.1);
-            color: #ef4444;
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        /* Glass effect improvements */
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #334155;
+        }
+        
+        /* Gradient text improvements */
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Button improvements */
+        .btn-primary {
+            background: #3b82f6;
+            color: #ffffff;
+            border: 1px solid #3b82f6;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+        
+        /* Tab improvements */
+        .tab-button {
+            background: #334155;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+        }
+        
+        .tab-button.bg-primary {
+            background: #3b82f6 !important;
+            color: #ffffff !important;
+            border-color: #3b82f6 !important;
+        }
+        
+        .tab-button:hover:not(.bg-primary) {
+            background: #475569;
+            color: #f1f5f9;
+        }
+        
+        /* Table improvements */
+        table {
+            background: #1e293b;
+            color: #f1f5f9;
+        }
+        
+        th {
+            background: #334155;
+            color: #f1f5f9;
+            border-color: #475569;
+        }
+        
+        td {
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        tr:hover {
+            background: rgba(51, 65, 85, 0.5);
+        }
+        
+        /* Text color improvements */
+        .text-muted {
+            color: #94a3b8 !important;
+        }
+        
+        .text-gray-500 {
+            color: #64748b !important;
+        }
+        
+        .text-gray-400 {
+            color: #94a3b8 !important;
+        }
+        
+        .text-gray-300 {
+            color: #cbd5e1 !important;
+        }
+        
+        /* Background improvements */
+        .bg-surface {
+            background: #1e293b !important;
+        }
+        
+        .bg-gray-800 {
+            background: #1e293b !important;
+        }
+        
+        .bg-gray-900 {
+            background: #0f172a !important;
+        }
+        
+        /* Border improvements */
+        .border-border {
+            border-color: #334155 !important;
+        }
+        
+        .border-gray-700 {
+            border-color: #334155 !important;
         }
     </style>
 </head>

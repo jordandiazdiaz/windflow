@@ -8,34 +8,157 @@
     <link rel="stylesheet" href="../dist/windflow.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
     <style>
+        /* Dark theme fixes */
+        body.theme-dark {
+            background: #0f172a;
+            color: #f1f5f9;
+        }
+        
         .code-block {
             background: #1e293b;
             border-radius: 0.75rem;
             padding: 1.5rem;
             overflow-x: auto;
+            color: #e2e8f0;
+            border: 1px solid #334155;
         }
+        
+        .code-block code {
+            color: #06b6d4;
+            font-family: 'Courier New', monospace;
+        }
+        
         .docs-nav {
             position: sticky;
             top: 2rem;
         }
+        
         .demo-card {
             transition: all 0.3s ease;
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #f1f5f9;
         }
+        
         .demo-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: #64748b;
         }
+        
         .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
+        
+        /* Better contrast for dark theme */
+        .theme-dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+        
+        .theme-dark .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+        
+        .theme-dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        
+        .theme-dark .text-gray-900 {
+            color: #f1f5f9 !important;
+        }
+        
+        .theme-dark .bg-white {
+            background: #1e293b !important;
+        }
+        
+        .theme-dark .bg-gray-50 {
+            background: #0f172a !important;
+        }
+        
+        .theme-dark .bg-gray-100 {
+            background: #1e293b !important;
+        }
+        
+        .theme-dark .border-gray-200 {
+            border-color: #334155 !important;
+        }
+        
+        .theme-dark .border-gray-300 {
+            border-color: #475569 !important;
+        }
+        
+        /* Navigation improvements */
+        .theme-dark .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #334155;
+        }
+        
+        /* Button improvements */
+        .theme-dark .btn-primary {
+            background: #3b82f6;
+            color: #ffffff;
+            border: 1px solid #3b82f6;
+        }
+        
+        .theme-dark .btn-primary:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+        
+        .theme-dark .btn-secondary {
+            background: #6366f1;
+            color: #ffffff;
+            border: 1px solid #6366f1;
+        }
+        
+        .theme-dark .btn-secondary:hover {
+            background: #4f46e5;
+            border-color: #4f46e5;
+        }
+        
+        /* Table improvements */
+        .theme-dark table {
+            background: #1e293b;
+            color: #f1f5f9;
+        }
+        
+        .theme-dark th {
+            background: #334155;
+            color: #f1f5f9;
+            border-color: #475569;
+        }
+        
+        .theme-dark td {
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        /* Form improvements */
+        .theme-dark input,
+        .theme-dark textarea,
+        .theme-dark select {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #f1f5f9;
+        }
+        
+        .theme-dark input:focus,
+        .theme-dark textarea:focus,
+        .theme-dark select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
         @media (max-width: 768px) {
             .feature-grid {
                 grid-template-columns: 1fr;
