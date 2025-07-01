@@ -71,6 +71,36 @@
             background: #334155;
             transform: scale(1.05);
         }
+        /* CRITICAL FIX: Override problematic background classes */
+        .bg-gray-900,
+        *[class*="bg-gray-900"] {
+            background: #1e293b !important;
+        }
+        
+        .bg-black,
+        *[class*="bg-black"] {
+            background: #1e293b !important;
+        }
+        
+        /* Fix any inline black backgrounds */
+        div[style*="background: black"],
+        div[style*="background-color: black"],
+        div[style*="background: #000"],
+        div[style*="background-color: #000"] {
+            background: #1e293b !important;
+        }
+        
+        /* Ensure all theme elements are consistent */
+        .theme-dark * {
+            z-index: auto;
+        }
+        
+        /* Fix pseudo-elements that might cause black spots */
+        *::before,
+        *::after {
+            background: transparent !important;
+        }
+        
         @media (max-width: 768px) {
             .playground-container {
                 grid-template-columns: 1fr;
@@ -79,13 +109,13 @@
         }
     </style>
 </head>
-<body class="theme-dark bg-theme-background">
+<body class="theme-dark bg-gray-900">
     <!-- Header -->
     <header class="bg-theme-surface border-b border-theme-border p-4">
         <div class="flex items-center justify-between">
             <h1 class="text-2xl font-bold text-theme-primary">🌊 WindFlow Playground</h1>
             <div class="flex items-center space-x-4">
-                <select id="themeSelect" class="bg-theme-background border border-theme-border rounded px-3 py-1 text-theme-text">
+                <select id="themeSelect" class="bg-gray-900 border border-theme-border rounded px-3 py-1 text-theme-text">
                     <option value="dark">Dark Theme</option>
                     <option value="cyberpunk">Cyberpunk</option>
                     <option value="glassmorphism">Glassmorphism</option>
@@ -163,7 +193,7 @@
                 </div>
             </div>
             <textarea id="codeEditor" class="code-editor flex-1" placeholder="Type your WindFlow HTML here...">
-<div class="theme-dark min-h-screen bg-theme-background p-8">
+<div class="theme-dark min-h-screen bg-gray-900 p-8">
   <div class="max-w-4xl mx-auto">
     <!-- Hero Section -->
     <div class="text-center mb-12">
@@ -245,7 +275,7 @@
     <script>
         // Examples database
         const examples = {
-            'button-animations': `<div class="theme-dark bg-theme-background p-8">
+            'button-animations': `<div class="theme-dark bg-gray-900 p-8">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Button Animations</h2>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
     <button class="bg-purple-500 text-white py-3 px-6 rounded-lg hover:animate-rubber-band btn-hover-lift">
@@ -275,7 +305,7 @@
   </div>
 </div>`,
 
-            'card-effects': `<div class="theme-dark bg-theme-background p-8">
+            'card-effects': `<div class="theme-dark bg-gray-900 p-8">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Card Effects</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
     <!-- Float Card -->
@@ -301,7 +331,7 @@
   </div>
 </div>`,
 
-            'loading-states': `<div class="theme-dark bg-theme-background p-8">
+            'loading-states': `<div class="theme-dark bg-gray-900 p-8">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Loading States</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
     <!-- Dots -->
@@ -334,7 +364,7 @@
   </div>
 </div>`,
 
-            'text-effects': `<div class="theme-dark bg-theme-background p-8">
+            'text-effects': `<div class="theme-dark bg-gray-900 p-8">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Text Effects</h2>
   <div class="space-y-8 max-w-4xl mx-auto text-center">
     <!-- Glowing Text -->
@@ -376,7 +406,7 @@
   </div>
 </div>`,
 
-            '3d-transforms': `<div class="theme-dark bg-theme-background p-8 perspective-lg">
+            '3d-transforms': `<div class="theme-dark bg-gray-900 p-8 perspective-lg">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">3D Transforms</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
     <!-- 3D Flip Card -->
@@ -423,7 +453,7 @@
   </div>
 </div>`,
 
-            'gradients': `<div class="theme-dark bg-theme-background p-8">
+            'gradients': `<div class="theme-dark bg-gray-900 p-8">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Advanced Gradients</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
     <!-- Linear Gradients -->
@@ -500,7 +530,7 @@
   </div>
 </div>`,
 
-            'cyberpunk': `<div class="theme-cyberpunk min-h-screen bg-theme-background cyber-grid p-8">
+            'cyberpunk': `<div class="theme-cyberpunk min-h-screen bg-gray-900 cyber-grid p-8">
   <h2 class="text-3xl font-bold neon-text text-center mb-8 animate-glow">CYBERPUNK INTERFACE</h2>
   
   <div class="max-w-4xl mx-auto space-y-6">
@@ -558,7 +588,7 @@
   </div>
 </div>`,
 
-            'social-card': `<div class="theme-dark bg-theme-background p-8">
+            'social-card': `<div class="theme-dark bg-gray-900 p-8">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Social Media Card</h2>
   
   <div class="max-w-md mx-auto bg-theme-surface border border-theme-border rounded-2xl p-6">
@@ -582,7 +612,7 @@
           <span class="text-blue-500">#WindFlowCSS #WebDev</span>
         </p>
         
-        <div class="bg-theme-background rounded-xl p-4 mb-4 border border-theme-border">
+        <div class="bg-gray-900 rounded-xl p-4 mb-4 border border-theme-border">
           <div class="flex items-center space-x-3 mb-3">
             <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span class="text-white text-lg">🌊</span>
@@ -614,7 +644,7 @@
   </div>
 </div>`,
 
-            'dashboard': `<div class="theme-dark bg-theme-background p-8">
+            'dashboard': `<div class="theme-dark bg-gray-900 p-8">
   <h2 class="text-3xl font-bold text-theme-primary mb-8 text-center">Dashboard</h2>
   
   <div class="max-w-6xl mx-auto">
@@ -655,7 +685,7 @@
           <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Goal</span>
         </div>
         <div class="text-2xl font-bold text-theme-text">3.24%</div>
-        <div class="w-full bg-theme-background rounded-full h-2">
+        <div class="w-full bg-gray-900 rounded-full h-2">
           <div class="bg-yellow-500 h-2 rounded-full w-3/4 animate-pulse"></div>
         </div>
       </div>
@@ -664,7 +694,7 @@
     <!-- Chart Area -->
     <div class="bg-theme-surface border border-theme-border rounded-xl p-6 mb-8">
       <h3 class="font-semibold text-theme-text mb-4">Performance Overview</h3>
-      <div class="h-48 bg-theme-background rounded-lg flex items-center justify-center">
+      <div class="h-48 bg-gray-900 rounded-lg flex items-center justify-center">
         <div class="text-center">
           <div class="loading-bars text-theme-primary mb-4">
             <div></div><div></div><div></div><div></div><div></div>
@@ -704,7 +734,7 @@
   </div>
 </div>`,
 
-            'navigation': `<div class="theme-dark bg-theme-background min-h-screen">
+            'navigation': `<div class="theme-dark bg-gray-900 min-h-screen">
   <!-- Glass Navigation -->
   <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-theme-border">
     <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
@@ -738,7 +768,7 @@
       <div class="bg-theme-surface border border-theme-border rounded-xl p-6 mb-8">
         <h3 class="text-xl font-bold text-theme-text mb-4">Sidebar Navigation</h3>
         <div class="flex">
-          <div class="w-64 bg-theme-background border-r border-theme-border p-4">
+          <div class="w-64 bg-gray-900 border-r border-theme-border p-4">
             <nav class="space-y-2">
               <a href="#" class="flex items-center space-x-2 p-2 rounded-lg bg-theme-primary text-white">
                 <span>📊</span>
@@ -876,6 +906,9 @@
     <link rel="stylesheet" href="../dist/windflow.css">
     <style>
         body { margin: 0; padding: 0; }
+        .bg-theme-background, *[class*="bg-theme-background"] { background: #1e293b !important; }
+        .bg-black, *[class*="bg-black"] { background: #1e293b !important; }
+        *::before, *::after { background: transparent !important; }
     </style>
 </head>
 <body class="theme-\${theme}">
