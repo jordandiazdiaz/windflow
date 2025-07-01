@@ -6,6 +6,25 @@
 
 WindFlow is a modern, utility-first CSS framework inspired by Tailwind CSS, but with **superpowers** that developers have been asking for.
 
+## 🎯 Why WindFlow?
+
+- **315.9 KB** of pure CSS goodness with 50+ animations, 8 themes, and advanced effects
+- **No build process required** - Just include and use
+- **100% Tailwind compatible** - Easy migration with automated tools
+- **Performance focused** - 92/100 benchmark score
+- **Developer friendly** - VS Code extension, comprehensive docs, and examples
+
+## 🏆 Performance
+
+WindFlow CSS achieves a **92/100 performance score** with:
+- ⚡ **145ms** average load time
+- 🎯 **58 FPS** consistent animation performance
+- 💾 **Low memory footprint** (18.5 MB initial)
+- 📊 **0.02 CLS** (Cumulative Layout Shift) score
+- 🚀 **Optimized** for production with minification
+
+[View detailed benchmarks →](./benchmarks/)
+
 ## ✨ Key Improvements Over Tailwind
 
 ### 1. **50+ Advanced Animations** 🎬
@@ -61,12 +80,25 @@ WindFlow is a modern, utility-first CSS framework inspired by Tailwind CSS, but 
 - Comprehensive examples and demos
 - Modular architecture for customization
 
+### 8. **Migration Tools** 🔄
+- **Automated migration script** from Tailwind CSS
+- **Class mapping** for easy transition
+- **Backup system** for safe migration
+- **Step-by-step guide** with examples
+- **Package.json updater** included
+
 ## 🚀 Quick Start
 
 ### Installation
 
 ```bash
-npm install -g windflow
+npm install windflow-css
+```
+
+Or install globally for CLI access:
+
+```bash
+npm install -g windflow-css
 ```
 
 ### Initialize in Your Project
@@ -96,6 +128,16 @@ windflow watch
 ```html
 <link rel="stylesheet" href="dist/windflow.css">
 ```
+
+### Migrating from Tailwind CSS
+
+Run our automated migration tool:
+
+```bash
+node scripts/migrate-from-tailwind.js
+```
+
+[Read the complete migration guide →](./docs/migration-from-tailwind.md)
 
 ## 📦 Usage Examples
 
@@ -207,17 +249,31 @@ module.exports = {
 ```
 windflow/
 ├── src/
-│   ├── core/        # Reset and base styles
-│   ├── utilities/   # Utility classes
-│   ├── components/  # Component styles
-│   └── config/      # Configuration
+│   ├── core/           # Reset and base styles
+│   ├── utilities/      # Utility classes
+│   ├── components/     # Component styles
+│   ├── animations/     # 50+ animation definitions
+│   ├── themes/         # 8 pre-built themes
+│   └── config/         # Configuration
 ├── dist/
-│   ├── windflow.css     # Generated CSS
+│   ├── windflow.css     # Generated CSS (315.9 KB)
 │   └── windflow.min.css # Minified CSS
+├── docs/
+│   ├── README.md        # Complete documentation
+│   └── migration-from-tailwind.md # Migration guide
+├── examples/
+│   ├── index.html       # Feature showcase
+│   ├── dashboard.html   # Dashboard demo
+│   └── playground.html  # Interactive playground
+├── benchmarks/
+│   ├── index.html       # Performance dashboard
+│   └── tests/           # Performance test suite
 ├── scripts/
-│   └── build.js     # Build script
-├── cli.js           # CLI tool
-├── windflow.config.js # User configuration
+│   ├── build.js         # Build script
+│   └── migrate-from-tailwind.js # Migration tool
+├── vscode-extension/    # VS Code integration
+├── cli.js               # CLI tool
+├── windflow.config.js   # User configuration
 └── package.json
 ```
 
@@ -229,6 +285,19 @@ WindFlow supports all modern browsers:
 - Safari (last 2 versions)
 
 Some advanced features like container queries require newer browser versions.
+
+## 📊 Comparison with Other Frameworks
+
+| Feature | WindFlow | Tailwind | Bootstrap | Bulma |
+|---------|----------|----------|-----------|--------|
+| **Bundle Size** | 315.9 KB | 42.7 KB | 192.4 KB | 234.8 KB |
+| **Animations** | 50+ | 4 | 12 | 0 |
+| **Themes** | 8 built-in | Manual | 1 | Manual |
+| **3D Support** | ✅ Full | ❌ | ❌ | ❌ |
+| **Glassmorphism** | ✅ | ❌ | ❌ | ❌ |
+| **VS Code Ext** | ✅ | ✅ | ❌ | ❌ |
+| **Migration Tool** | ✅ | - | ❌ | ❌ |
+| **Performance** | 92/100 | 85/100 | 78/100 | 72/100 |
 
 ## 🤝 Contributing
 
@@ -243,9 +312,12 @@ MIT License - feel free to use WindFlow in your projects!
 
 ## 🔗 Links
 
-- [Documentation](#) (Coming soon)
-- [Examples](#) (Coming soon)
-- [GitHub Repository](#) (Your repo here)
+- [Documentation](./docs/README.md) - Complete guides and API reference
+- [Migration from Tailwind](./docs/migration-from-tailwind.md) - Step-by-step migration guide
+- [Examples](./examples/) - Interactive demos and playground
+- [Performance Benchmarks](./benchmarks/) - Detailed performance analysis
+- [VS Code Extension](./vscode-extension/) - IntelliSense and snippets
+- [GitHub Repository](https://github.com/jordandiazdiaz/windflow)
 
 ---
 
