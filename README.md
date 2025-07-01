@@ -312,7 +312,7 @@ MIT License - feel free to use WindFlow in your projects!
 
 ## 🔗 Links
 
-- [Documentation](./docs/README.md) - Complete guides and API reference
+- [Documentation](./docs/) - Complete guides and API reference
 - [Migration from Tailwind](./docs/migration-from-tailwind.md) - Step-by-step migration guide
 - [Examples](./examples/) - Interactive demos and playground
 - [Performance Benchmarks](./benchmarks/) - Detailed performance analysis
