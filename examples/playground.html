@@ -893,10 +893,23 @@
         
         // Update preview
         function updatePreview() {
-            const code = document.getElementById('codeEditor').value;
-            const theme = document.getElementById('themeSelect').value;
-            
-            const fullHTML = \`
+            try {
+                console.log('Updating preview...');
+                const codeEditor = document.getElementById('codeEditor');
+                const themeSelect = document.getElementById('themeSelect');
+                const iframe = document.getElementById('previewFrame');
+                
+                if (!codeEditor || !themeSelect || !iframe) {
+                    console.error('Missing elements:', { codeEditor: !!codeEditor, themeSelect: !!themeSelect, iframe: !!iframe });
+                    return;
+                }
+                
+                const code = codeEditor.value;
+                const theme = themeSelect.value;
+                
+                console.log('Theme:', theme, 'Code length:', code.length);
+                
+                const fullHTML = \`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -905,26 +918,43 @@
     <title>WindFlow Preview</title>
     <link rel="stylesheet" href="../dist/windflow.css">
     <style>
-        body { margin: 0; padding: 0; }
+        body { margin: 0; padding: 0; background: #1e293b; }
         .bg-theme-background, *[class*="bg-theme-background"] { background: #1e293b !important; }
         .bg-black, *[class*="bg-black"] { background: #1e293b !important; }
         *::before, *::after { background: transparent !important; }
+        .text-glitch::before, .text-glitch::after { display: none !important; }
     </style>
 </head>
 <body class="theme-\${theme}">
 \${code}
 </body>
 </html>\`;
-            
-            const iframe = document.getElementById('previewFrame');
-            iframe.srcdoc = fullHTML;
+                
+                iframe.srcdoc = fullHTML;
+                console.log('Preview updated successfully');
+            } catch (error) {
+                console.error('Error updating preview:', error);
+            }
         }
 
         // Load example
         function loadExample(exampleKey) {
-            if (examples[exampleKey]) {
-                document.getElementById('codeEditor').value = examples[exampleKey];
-                updatePreview();
+            try {
+                console.log('Loading example:', exampleKey);
+                if (examples[exampleKey]) {
+                    const codeEditor = document.getElementById('codeEditor');
+                    if (codeEditor) {
+                        codeEditor.value = examples[exampleKey];
+                        updatePreview();
+                        console.log('Example loaded successfully');
+                    } else {
+                        console.error('Code editor not found');
+                    }
+                } else {
+                    console.error('Example not found:', exampleKey);
+                }
+            } catch (error) {
+                console.error('Error loading example:', error);
             }
         }
 
@@ -979,7 +1009,30 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            loadExample('button-animations');
+            console.log('DOM Content Loaded - Initializing playground...');
+            
+            // Wait a bit for elements to be ready
+            setTimeout(function() {
+                console.log('Loading default example...');
+                loadExample('button-animations');
+                
+                // Verify elements exist
+                const codeEditor = document.getElementById('codeEditor');
+                const themeSelect = document.getElementById('themeSelect');
+                const iframe = document.getElementById('previewFrame');
+                
+                console.log('Elements check:', {
+                    codeEditor: !!codeEditor,
+                    themeSelect: !!themeSelect,
+                    iframe: !!iframe
+                });
+                
+                if (codeEditor && themeSelect && iframe) {
+                    console.log('All elements found - Playground ready!');
+                } else {
+                    console.error('Some elements missing - Playground may not work properly');
+                }
+            }, 100);
         });
     </script>
 </body>
