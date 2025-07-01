@@ -253,6 +253,29 @@
             box-shadow: none !important;
         }
         
+        /* CRITICAL FIX: Override all bg-black classes that cause black spots */
+        .bg-black,
+        *[class*="bg-black"] {
+            background: #1e293b !important;
+        }
+        
+        /* Fix any div or element that might have black backgrounds */
+        div[style*="background: black"],
+        div[style*="background-color: black"],
+        div[style*="background: #000"],
+        div[style*="background-color: #000"] {
+            background: #1e293b !important;
+        }
+        
+        /* Ensure no element uses pure black */
+        * {
+            background-color: inherit;
+        }
+        
+        *[style*="background"] {
+            background: inherit !important;
+        }
+        
         @media (max-width: 768px) {
             .feature-grid {
                 grid-template-columns: 1fr;
