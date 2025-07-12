@@ -198,6 +198,32 @@ const themes = {
       sunset: 'linear-gradient(135deg, #fbbf24, #f97316, #ea580c, #dc2626)',
       warm: 'radial-gradient(ellipse at center, #fef3c7, #f97316)'
     }
+  },
+
+  // Neon Theme
+  neon: {
+    name: 'Neon',
+    description: 'Vibrant neon lights with glowing effects',
+    colors: {
+      primary: '#ff00ff',
+      secondary: '#00ff00',
+      accent: '#00ffff',
+      background: '#000000',
+      surface: '#0a0a0a',
+      'surface-light': '#1a1a1a',
+      text: '#ffffff',
+      'text-muted': '#cccccc',
+      border: '#ff00ff',
+      success: '#00ff00',
+      warning: '#ffff00',
+      error: '#ff0000'
+    },
+    gradients: {
+      primary: 'linear-gradient(45deg, #ff00ff, #00ffff)',
+      secondary: 'linear-gradient(45deg, #00ff00, #ffff00)',
+      neon: 'radial-gradient(circle at center, #ff00ff 0%, #00ffff 25%, #00ff00 50%, #ffff00 75%, #ff00ff 100%)',
+      glow: 'radial-gradient(ellipse at center, rgba(255, 0, 255, 0.5) 0%, transparent 70%)'
+    }
   }
 };
 

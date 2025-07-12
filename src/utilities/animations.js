@@ -281,6 +281,99 @@ module.exports = function generateAnimations(config) {
 @keyframes wf-loading-pulse-ring {
   0% { transform: scale(0.1); opacity: 1; }
   100% { transform: scale(1.2); opacity: 0; }
+}
+
+@keyframes wf-morph {
+  0%, 100% { 
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    transform: rotate(0deg);
+  }
+  25% { 
+    border-radius: 60% 40% 40% 60% / 40% 60% 30% 70%;
+    transform: rotate(90deg);
+  }
+  50% { 
+    border-radius: 40% 60% 60% 40% / 70% 40% 60% 30%;
+    transform: rotate(180deg);
+  }
+  75% { 
+    border-radius: 60% 40% 40% 60% / 30% 70% 40% 60%;
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes wf-glitch-2 {
+  0%, 100% { 
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  5% { 
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-10px, 5px);
+  }
+  10% { 
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(10px, -5px);
+  }
+  15% { 
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-5px, 2px);
+  }
+  20% { 
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(5px, -2px);
+  }
+}
+
+@keyframes wf-float-up {
+  0% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes wf-float-down {
+  0% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes wf-shake-x {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+@keyframes wf-shake-y {
+  0%, 100% { transform: translateY(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateY(-10px); }
+  20%, 40%, 60%, 80% { transform: translateY(10px); }
+}
+
+@keyframes wf-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes wf-wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
 }`);
 
   // Animation classes
@@ -347,7 +440,17 @@ module.exports = function generateAnimations(config) {
     'loading-dots': 'wf-loading-dots 1.4s ease-in-out infinite',
     'loading-bars': 'wf-loading-bars 1.2s ease-in-out infinite',
     'loading-spinner': 'wf-loading-spinner 1s linear infinite',
-    'loading-pulse-ring': 'wf-loading-pulse-ring 1s ease-out infinite'
+    'loading-pulse-ring': 'wf-loading-pulse-ring 1s ease-out infinite',
+    
+    // New animations
+    'morph': 'wf-morph 8s ease-in-out infinite',
+    'glitch-2': 'wf-glitch-2 3s linear infinite',
+    'float-up': 'wf-float-up 2s ease-out',
+    'float-down': 'wf-float-down 2s ease-out',
+    'shake-x': 'wf-shake-x 0.5s ease-in-out',
+    'shake-y': 'wf-shake-y 0.5s ease-in-out',
+    'ripple': 'wf-ripple 0.6s ease-out',
+    'wave': 'wf-wave 2s ease-in-out infinite'
   };
 
   Object.entries(animations).forEach(([name, value]) => {

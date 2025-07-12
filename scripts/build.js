@@ -36,6 +36,8 @@ const {
 } = require('../src/utilities/modern.js');
 const generateThemes = require('../src/components/themes.js');
 const { generateResponsiveVariants, generateDarkModeVariants } = require('../src/utilities/responsive.js');
+const generateGridEnhanced = require('../src/utilities/grid.js');
+const generateBehavior = require('../src/utilities/behavior.js');
 
 class WindFlowBuilder {
   constructor() {
@@ -68,6 +70,7 @@ class WindFlowBuilder {
     console.log('  📱 Generating layout utilities...');
     this.output.push(generateFlexbox(this.config));
     this.output.push(generateGrid(this.config));
+    this.output.push(generateGridEnhanced(this.config));
     
     console.log('  🖼️  Generating border utilities...');
     this.output.push(generateBorders(this.config));
@@ -94,6 +97,9 @@ class WindFlowBuilder {
     this.output.push(generateAspectRatio(this.config));
     this.output.push(generateScrollSnap(this.config));
     this.output.push(generateContainerQueries(this.config));
+    
+    console.log('  🎯 Generating behavior utilities...');
+    this.output.push(generateBehavior(this.config));
     
     console.log('  🎨 Generating theme system...');
     this.output.push(generateThemes(this.config));

@@ -13,6 +13,7 @@ class WindFlowCLI {
       'watch': this.watch.bind(this),
       'optimize': this.optimize.bind(this),
       'config': this.config.bind(this),
+      'stats': this.stats.bind(this),
       'help': this.help.bind(this)
     };
   }
@@ -295,6 +296,75 @@ class WindFlowCLI {
     }
   }
 
+  stats() {
+    console.log('📊 WindFlow CSS Statistics\n');
+    
+    const cssPath = path.join(process.cwd(), 'dist', 'windflow.css');
+    const minPath = path.join(process.cwd(), 'dist', 'windflow.min.css');
+    
+    if (!fs.existsSync(cssPath)) {
+      console.error('❌ dist/windflow.css not found. Run "windflow build" first.');
+      return;
+    }
+    
+    try {
+      const cssContent = fs.readFileSync(cssPath, 'utf8');
+      const lines = cssContent.split('\n');
+      const rules = cssContent.match(/\{[^}]*\}/g) || [];
+      const selectors = cssContent.match(/[^{]+{/g) || [];
+      const animations = cssContent.match(/@keyframes\s+[\w-]+/g) || [];
+      const cssVars = cssContent.match(/--[\w-]+:/g) || [];
+      const mediaQueries = cssContent.match(/@media[^{]+/g) || [];
+      
+      // Count unique classes
+      const classMatches = cssContent.match(/\.[a-zA-Z][\w-]*/g) || [];
+      const uniqueClasses = new Set(classMatches);
+      
+      // File sizes
+      const cssSize = fs.statSync(cssPath).size;
+      const minSize = fs.existsSync(minPath) ? fs.statSync(minPath).size : 0;
+      
+      console.log('📄 File Information:');
+      console.log(`   • Original size: ${(cssSize / 1024).toFixed(2)} KB`);
+      if (minSize > 0) {
+        console.log(`   • Minified size: ${(minSize / 1024).toFixed(2)} KB`);
+        console.log(`   • Compression: ${((1 - minSize / cssSize) * 100).toFixed(2)}%`);
+      }
+      console.log('');
+      
+      console.log('📈 CSS Metrics:');
+      console.log(`   • Total lines: ${lines.length.toLocaleString()}`);
+      console.log(`   • CSS rules: ${rules.length.toLocaleString()}`);
+      console.log(`   • Selectors: ${selectors.length.toLocaleString()}`);
+      console.log(`   • Unique classes: ${uniqueClasses.size.toLocaleString()}`);
+      console.log(`   • Animations: ${animations.length}`);
+      console.log(`   • CSS variables: ${cssVars.length}`);
+      console.log(`   • Media queries: ${mediaQueries.length}`);
+      console.log('');
+      
+      console.log('🎨 Feature Breakdown:');
+      const features = {
+        'Colors': classMatches.filter(c => c.match(/\.(text-|bg-|border-)/)).length,
+        'Layout': classMatches.filter(c => c.match(/\.(flex|grid|block|inline|hidden)/)).length,
+        'Spacing': classMatches.filter(c => c.match(/\.(m-|p-|space-)/)).length,
+        'Typography': classMatches.filter(c => c.match(/\.(text-|font-|leading-)/)).length,
+        'Effects': classMatches.filter(c => c.match(/\.(shadow-|opacity-|blur-)/)).length,
+        'Animations': classMatches.filter(c => c.match(/\.animate-/)).length,
+        'Transforms': classMatches.filter(c => c.match(/\.(rotate-|scale-|translate-)/)).length,
+        'Responsive': classMatches.filter(c => c.match(/\.(sm:|md:|lg:|xl:|2xl:)/)).length
+      };
+      
+      Object.entries(features).forEach(([feature, count]) => {
+        console.log(`   • ${feature}: ${count.toLocaleString()} utilities`);
+      });
+      
+      console.log('\n✨ WindFlow CSS v2.1.2 - Modern CSS Framework');
+      
+    } catch (error) {
+      console.error('❌ Error analyzing CSS:', error.message);
+    }
+  }
+
   help() {
     console.log(`
 🌊 WindFlow CSS Framework CLI
@@ -307,6 +377,7 @@ Commands:
   watch      Watch for changes and rebuild automatically
   optimize   Optimize and minify the CSS output
   config     Show current configuration
+  stats      Display CSS statistics and metrics
   help       Show this help message
 
 Examples:
@@ -314,8 +385,9 @@ Examples:
   windflow build     # Generate windflow.css
   windflow watch     # Build and watch for changes
   windflow optimize  # Create optimized windflow.min.css
+  windflow stats     # Show CSS file statistics
 
-Learn more at: https://github.com/yourusername/windflow
+Learn more at: https://github.com/jordandiazdiaz/windflow
 `);
   }
 }

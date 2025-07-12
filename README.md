@@ -27,12 +27,12 @@ WindFlow CSS achieves a **92/100 performance score** with:
 
 ## ✨ Key Improvements Over Tailwind
 
-### 1. **50+ Advanced Animations** 🎬
-- **Attention seekers**: rubber-band, jello, swing, tada, wobble, shake, heartbeat
+### 1. **58+ Advanced Animations** 🎬
+- **Attention seekers**: rubber-band, jello, swing, tada, wobble, shake, heartbeat, shake-x, shake-y
 - **Entrances**: fade-in, slide-in-*, zoom-in, roll-in, light-speed-in, jack-in-the-box
-- **Exits**: fade-out, slide-out-*, zoom-out, roll-out, light-speed-out, hinge
+- **Exits**: fade-out, slide-out-*, zoom-out, roll-out, light-speed-out, hinge, float-up, float-down
 - **Text effects**: typewriter, blink, glow, neon
-- **Modern effects**: glitch, matrix, morphing, float, levitate
+- **Modern effects**: glitch, glitch-2, matrix, morphing, morph, float, levitate, ripple, wave
 - **Loading animations**: dots, bars, spinner, pulse-ring
 - **Animation utilities** for duration, delay, iteration, direction, fill mode, play state
 - **Hover variants**: All animations support `hover:animate-*` prefix
@@ -59,8 +59,8 @@ WindFlow CSS achieves a **92/100 performance score** with:
 - **Aspect ratio** utilities
 - **Mix blend modes**
 
-### 5. **8 Beautiful Themes** 🎨
-- **Pre-built themes**: dark, cyberpunk, glassmorphism, retro, nature, ocean, monochrome, sunset
+### 5. **9 Beautiful Themes** 🎨
+- **Pre-built themes**: dark, cyberpunk, glassmorphism, retro, nature, ocean, monochrome, sunset, neon
 - **CSS variables**: Automatic theme variable generation
 - **Theme utilities**: `text-theme-primary`, `bg-theme-surface`, `border-theme-border`
 - **Instant switching**: No rebuild required
@@ -146,14 +146,22 @@ node scripts/migrate-from-tailwind.js
 <!-- Fade in with custom duration -->
 <div class="animate-fade-in duration-500">Hello World</div>
 
-<!-- Shake effect on hover -->
-<button class="hover:animate-shake">Click me!</button>
+<!-- New shake variations -->
+<button class="hover:animate-shake-x">Shake X!</button>
+<button class="hover:animate-shake-y">Shake Y!</button>
 
-<!-- Continuous wiggle -->
-<div class="animate-wiggle animate-infinite">🎉</div>
+<!-- New morphing animation -->
+<div class="animate-morph bg-blue-500 w-32 h-32">Morphing Shape</div>
 
-<!-- 3D flip card -->
-<div class="animate-flip transform-3d">Card</div>
+<!-- Enhanced glitch effect -->
+<div class="animate-glitch-2 text-neon">Glitch Text</div>
+
+<!-- Float animations -->
+<div class="animate-float-up">Float Up</div>
+<div class="animate-float-down">Float Down</div>
+
+<!-- Ripple effect -->
+<div class="animate-ripple bg-blue-500 rounded-full w-16 h-16">Ripple</div>
 ```
 
 ### Advanced Gradients
@@ -207,6 +215,46 @@ node scripts/migrate-from-tailwind.js
 </div>
 ```
 
+### Enhanced Text Decorations
+```html
+<!-- Wavy underline -->
+<p class="underline decoration-wavy decoration-blue-500">Wavy text</p>
+
+<!-- Double overline -->
+<h2 class="overline decoration-double decoration-4">Important heading</h2>
+
+<!-- Custom underline offset -->
+<span class="underline underline-offset-4 decoration-2">Offset underline</span>
+```
+
+### Advanced Grid Layouts
+```html
+<!-- Dashboard layout -->
+<div class="grid grid-layout-dashboard min-h-screen gap-4">
+  <header class="bg-blue-500 p-4" style="grid-area: header">Header</header>
+  <nav class="bg-gray-200 p-4" style="grid-area: sidebar">Sidebar</nav>
+  <main class="bg-white p-4" style="grid-area: main">Main Content</main>
+  <footer class="bg-gray-100 p-4" style="grid-area: footer">Footer</footer>
+</div>
+
+<!-- Masonry layout -->
+<div class="grid grid-layout-masonry gap-4">
+  <div class="bg-red-200 p-4" style="grid-row-end: span 20">Item 1</div>
+  <div class="bg-blue-200 p-4" style="grid-row-end: span 30">Item 2</div>
+  <div class="bg-green-200 p-4" style="grid-row-end: span 15">Item 3</div>
+</div>
+```
+
+### Scroll Behavior
+```html
+<!-- Smooth scrolling -->
+<div class="scroll-smooth snap-y snap-mandatory h-96 overflow-y-scroll">
+  <section class="snap-start h-96 bg-red-200">Section 1</section>
+  <section class="snap-center h-96 bg-blue-200">Section 2</section>
+  <section class="snap-end h-96 bg-green-200">Section 3</section>
+</div>
+```
+
 ## 🛠️ Configuration
 
 Edit `windflow.config.js` to customize:
@@ -242,6 +290,7 @@ module.exports = {
 - `windflow watch` - Watch and rebuild on changes
 - `windflow optimize` - Create minified version
 - `windflow config` - Show current configuration
+- `windflow stats` - Display CSS statistics and metrics
 - `windflow help` - Show help
 
 ## 🏗️ Project Structure
