@@ -1,0 +1,11 @@
+🎨 Check out WindFlow's new animations:
+
+• animate-morph: Organic shape transformations 🔄
+• animate-ripple: Expanding wave effects 🌊
+• animate-glitch-2: Enhanced digital distortion ⚡
+• animate-float-up/down: Smooth floating 🎈
+
+Perfect for modern web interfaces!
+
+Demo: https://github.com/jordandiazdiaz/windflow
+Try it: npm install windflow-css

@@ -16,8 +16,22 @@
     "css",
     "framework",
     "utility-first",
-    "windflow",
-    "tailwind-alternative"
+    "tailwind-alternative",
+    "animations",
+    "themes",
+    "modern-css",
+    "glassmorphism",
+    "grid-layouts",
+    "frontend",
+    "ui",
+    "responsive",
+    "dark-mode",
+    "css-animations",
+    "web-development",
+    "design-system",
+    "css-utilities",
+    "no-build",
+    "zero-config"
   ],
   "author": "Jordan Diaz",
   "bin": {
@@ -36,7 +50,7 @@
     "type": "git",
     "url": "git+https://github.com/jordandiazdiaz/windflow.git"
   },
-  "homepage": "https://github.com/jordandiazdiaz/windflow#readme",
+  "homepage": "https://github.com/jordandiazdiaz/windflow",
   "bugs": {
     "url": "https://github.com/jordandiazdiaz/windflow/issues"
   },

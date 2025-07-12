@@ -1,0 +1,12 @@
+🚀 WindFlow CSS v2.2.0 is here!
+
+✨ New features:
+• 8+ advanced animations (morph, ripple, glitch-2)
+• Enhanced grid layouts with pre-built templates
+• New "neon" theme with vibrant colors
+• Advanced text decorations (wavy, thickness)
+• CLI stats command for analytics
+
+npm install windflow-css
+
+#CSS #WebDev #TailwindAlternative #Frontend

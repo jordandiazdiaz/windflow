@@ -1,0 +1,37 @@
+**WindFlow CSS v2.2.0: Major Update with 58+ Animations**
+
+Hey r/webdev! Just released a major update to my Tailwind alternative with some game-changing features:
+
+## 🆕 What's New
+- **8 new animations**: morphing shapes, ripple effects, enhanced glitch
+- **Enhanced CSS Grid**: Pre-built layouts (dashboard, masonry, cards)
+- **New "neon" theme**: Perfect for cyberpunk/futuristic designs
+- **Advanced text decorations**: Wavy underlines, thickness control
+- **CLI stats command**: Analyze your CSS metrics
+
+## 🎯 Why WindFlow over Tailwind?
+- **More animations**: 58+ vs Tailwind's 4
+- **Built-in themes**: 9 beautiful themes included
+- **Zero build process**: Just include and use
+- **100% compatible**: Easy migration from Tailwind
+- **Modern CSS**: Container queries, backdrop filters, advanced transforms
+
+## 📊 Performance
+- 374KB total size with all features
+- 92/100 performance score
+- Optimized for production
+
+## 🚀 Quick Start
+```bash
+npm install windflow-css
+```
+
+```html
+<div class="animate-morph bg-gradient-neon p-8 rounded-xl">
+  Modern CSS made easy
+</div>
+```
+
+[GitHub](https://github.com/jordandiazdiaz/windflow) | [npm](https://npmjs.com/package/windflow-css) | [Live Demo](https://jordandiazdiaz.github.io/windflow)
+
+Love to hear your thoughts! What features would you like to see next?

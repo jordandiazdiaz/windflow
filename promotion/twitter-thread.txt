@@ -1,0 +1,15 @@
+🧵 THREAD: Why I built WindFlow CSS as a Tailwind alternative (1/7)
+
+The problem: Tailwind is great, but lacks advanced animations and modern CSS features that today's web demands. (2/7)
+
+WindFlow solution: 58+ animations, 9 themes, advanced grid layouts, all with zero build process required. (3/7)
+
+New in v2.2.0: Morph animations, neon theme, enhanced grids, better text decorations. (4/7)
+
+Performance: 374KB of utilities vs writing custom CSS. 92/100 performance score. (5/7)
+
+Migration: 100% Tailwind compatible. Use our automated migration tool. (6/7)
+
+Try it: npm install windflow-css
+GitHub: https://github.com/jordandiazdiaz/windflow
+What do you think? (7/7)

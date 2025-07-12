@@ -1,0 +1,28 @@
+**WindFlow CSS: Advanced Animations Meet Utility-First Design**
+
+r/css, check out this utility framework with some serious animation power:
+
+## 🎬 Animation Highlights
+- **58+ pre-built animations**: From basic fades to complex morphing
+- **Modern effects**: Glitch, matrix, neon, glassmorphism
+- **3D transforms**: Full perspective and rotation support
+- **Custom easing**: Elastic, bounce, back, expo curves
+
+## 🎨 CSS Features
+- **Advanced gradients**: Linear, radial, conic, mesh, animated
+- **Backdrop filters**: Full glassmorphism support
+- **Modern CSS**: Container queries, scroll snap, aspect ratio
+- **Typography**: Enhanced text decorations, font variants
+
+## 💡 Philosophy
+Utility-first like Tailwind, but with the animations and modern CSS features that designers actually want.
+
+Example:
+```css
+.animate-morph {
+  animation: morph 8s ease-in-out infinite;
+  border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+}
+```
+
+[GitHub](https://github.com/jordandiazdiaz/windflow) | What do you think of utility-first + animations?
